@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>C# → SQL 抽出ツール</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <h1>C# → SQL 抽出ツール <span class="tag">連結/分岐も復元</span></h1>
+
+    <div class="grid-2">
+      <!-- 左：関数貼り付け -->
+      <div class="card">
+        <label for="src">C# の関数（ソースを貼り付け）</label>
+        <textarea id="src" rows="26" placeholder="ここに C# の関数やメソッド全体を貼り付けてください。&#10;・string 連結（&quot;...&quot; + &quot;...&quot;）&#10;・StringBuilder.Append/AppendLine&#10;・if / else if / else 分岐対応（分岐ごとに結果①/②…で表示）"></textarea>
+        <div class="btns" style="margin-top:12px">
+          <button id="run" class="btn btn-primary">SQL を抽出する</button>
+          <button id="clear" class="btn btn-clear">クリア</button>
+        </div>
+      </div>
+
+      <!-- 右：結果 -->
+      <div class="card">
+        <strong>複数検出時の結果</strong>
+        <div id="multi" class="patterns"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">コピーしました</div>
+
+<script src="script.js"></script>
+</body>
+</html>
