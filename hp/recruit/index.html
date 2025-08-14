@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ConsalLink Recruit Page</title>
+    <meta name="description" content="ConsalLink Recruit Page">
+    <meta name="theme-color" content="#ffffff">
+    <style>
+        body.is-loading {
+            opacity: 0
+        }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- 既存フォント -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- 手書き風フォント（フォールバック） -->
+    <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="top" class="is-loading">
+    <!-- Header -->
+    <header id="siteHeader">
+        <a class="brand-logo" href="#top" aria-label="トップへ">
+            <img src="./images/header.png" alt="ConsalLink Recruit" />
+        </a>
+        <nav>
+            <button class="hamburger" id="hamBtn" aria-label="メニューを開く" aria-controls="drawer" aria-expanded="false">
+                <span class="ham-lines" aria-hidden="true">
+                    <span></span><span></span><span></span>
+                </span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Off-canvas drawer -->
+    <div class="drawer-backdrop" id="backdrop" tabindex="-1" aria-hidden="true"></div>
+    <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+        <div class="drawer-header">
+            <strong id="drawerTitle">メニュー</strong>
+        </div>
+        <!-- ▼ 並び順：働く環境 → 数字で見る → よくある質問 → 中途採用 → 新卒採用 → 社員図鑑 -->
+        <ul class="drawer-list">
+            <li><a class="drawer-link" href="#environment" data-close>働く環境</a></li>
+            <li><a class="drawer-link" href="#numbers" data-close>数字で見る</a></li>
+            <li><a class="drawer-link" href="#faq" data-close>よくある質問</a></li>
+            <li><a class="drawer-link" href="#midcareer" data-close>中途採用</a></li>
+            <li><a class="drawer-link" href="#freshers" data-close>新卒採用</a></li>
+            <li><a class="drawer-link" href="#catalog" data-close>社員図鑑</a></li>
+        </ul>
+    </aside>
+
+    <!-- Hero with background video -->
+    <main>
+        <section class="hero" aria-label="ヒーローセクション">
+            <!-- PC/スマホの動画はJSで出し分け -->
+            <video id="bgVideo" autoplay muted loop playsinline preload="auto"
+                poster="./images/hero-poster.jpg"></video>
+
+            <div class="particles" aria-hidden="true" id="particles"></div>
+
+            <div class="hero-inner">
+                <h1 class="handwrite">皆の為、自分を磨こう</h1>
+                <p class="lead handwrite-sub">仕事が好きと言えることは、それだけで大きな力になる</p>
+
+                <!-- ▼ 画像CTA（同サイズ画像＋白ネオン縁） -->
+                <div class="cta-wrap cta-image">
+                    <a class="cta-img-link" href="#midcareer" id="midBtn" aria-label="中途採用へ">
+                        <span class="cta-zoom">
+                            <img src="./images/midle-career.png" alt="中途採用">
+                        </span>
+                    </a>
+                    <a class="cta-img-link" href="#freshers" id="freshBtn" aria-label="新卒採用へ">
+                        <span class="cta-zoom">
+                            <img src="./images/new-career.png" alt="新卒採用">
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="environment" class="reveal section-bg">
+            <div class="section-inner">
+                <h2 class="sec-title">働く環境</h2>
+                <p class="sec-lead">
+                    「会社が好き」と思えるような環境を整えることは重要なミッションです。<br />もっと働きやすい職場や、モチベーションの向上につながるような制度をこれからも考え続けます。
+                </p>
+
+                <div class="cards env-cards">
+                    <!-- card1 -->
+                    <div class="card reveal env-card env-card1">
+                        <div class="env-card__body">
+                            <h3 class="env-card__title">作業環境・各種制度</h3>
+                            <p class="env-card__desc">実際の作業風景や資格報奨金といった各種制度についてはこちら</p>
+                            <span class="env-card__arrow" aria-hidden="true">
+                                <img src="./images/icon/next.png" alt="">
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- card2 -->
+                    <div class="card reveal env-card env-card2">
+                        <div class="env-card__body">
+                            <h3 class="env-card__title">福利厚生・社内イベント</h3>
+                            <p class="env-card__desc">コンサルリンク特有の福利厚生や社内イベントについてはこちら</p>
+                            <span class="env-card__arrow" aria-hidden="true">
+                                <img src="./images/icon/next.png" alt="">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="numbers" class="reveal section-bg has-bgvideo" aria-label="数字で見る">
+            <div class="sec-bg" aria-hidden="true">
+                <video class="sec-bg-video" autoplay muted loop playsinline preload="auto"
+                    poster="./images/bg-numbers.jpg">
+                    <source src="movie/bg-catalog.mp4" type="video/mp4" />
+                </video>
+                <div class="sec-bg-overlay"></div>
+            </div>
+
+            <div class="section-inner">
+                <h2 class="sec-title">数字で見る</h2>
+                <p class="sec-lead">
+                    売上高・従業員数や人員構成比など、より具体的コンサルリンクを知っていただけるさまざまなデータを掲載しています。
+                </p>
+
+                <div class="cards num-cards">
+                    <!-- card1: 男女比率（円グラフ） -->
+                    <div class="card reveal num-card num-pie">
+                        <h3 class="num-title">男女比率</h3>
+                        <div class="pie-wrap">
+                            <div class="pie" role="img" aria-label="男性60%、女性40%"></div>
+                            <ul class="pie-legend" aria-hidden="true">
+                                <li><span class="dot male"></span>男性 60%</li>
+                                <li><span class="dot female"></span>女性 40%</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- card2: 平均年齢（画像60% + 下に数値） -->
+                    <div class="card reveal num-card num-stat num-stat-age">
+                        <h3 class="num-title">平均年齢</h3>
+                        <div class="num-visual">
+                            <img class="num-hero" src="./images/numbers/age.png" alt="">
+                        </div>
+                        <div class="num-value">
+                            <span class="num">31</span><span class="unit">歳</span>
+                        </div>
+                    </div>
+
+                    <!-- card3: 年間休日（画像60% + 下に数値） -->
+                    <div class="card reveal num-card num-stat num-stat-holiday">
+                        <h3 class="num-title">年間休日</h3>
+                        <div class="num-visual">
+                            <img class="num-hero" src="./images/numbers/holiday.png" alt="">
+                        </div>
+                        <div class="num-value">
+                            <span class="num">125</span><span class="unit">日以上</span>
+                        </div>
+                    </div>
+
+                    <!-- card4: もっと見る（中央に画像50% + 白文字） -->
+                    <div class="card reveal num-card num-more">
+                        <h3 class="num-title">もっと見る</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="reveal section-bg">
+            <div class="section-inner">
+                <h2 class="sec-title">よくある質問</h2>
+                <p class="sec-lead">選考・入社前後の疑問にお答えします。</p>
+                <div class="cards">
+                    <div class="card reveal">選考フロー（ダミー）</div>
+                    <div class="card reveal">配属/教育（ダミー）</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="midcareer" class="reveal section-bg has-bgvideo" aria-label="数字で見る">
+            <div class="sec-bg" aria-hidden="true">
+                <video class="sec-bg-video" autoplay muted loop playsinline preload="auto"
+                    poster="./images/bg-numbers.jpg">
+                    <source src="movie/bg-catalog.mp4" type="video/mp4" />
+                </video>
+                <div class="sec-bg-overlay"></div>
+            </div>
+
+            <div class="section-inner">
+                <h2 class="sec-title">中途採用</h2>
+                <p class="sec-lead">このセクションはダミーです。別ページにリンクする場合は a[href] を差し替えてください。</p>
+                <div class="cards">
+                    <div class="card reveal">募集要項・応募ボタン（ダミー）</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="freshers" class="reveal section-bg">
+            <div class="section-inner">
+                <h2 class="sec-title">新卒採用</h2>
+                <p class="sec-lead">このセクションはダミーです。別ページにリンクする場合は a[href] を差し替えてください。</p>
+                <div class="cards">
+                    <div class="card reveal">募集要項・応募ボタン（ダミー）</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="catalog" class="reveal section-bg has-bgvideo" aria-label="数字で見る">
+            <div class="sec-bg" aria-hidden="true">
+                <video class="sec-bg-video" autoplay muted loop playsinline preload="auto"
+                    poster="./images/bg-numbers.jpg">
+                    <source src="movie/bg-catalog.mp4" type="video/mp4" />
+                </video>
+                <div class="sec-bg-overlay"></div>
+            </div>
+
+            <div class="section-inner">
+                <h2 class="sec-title">社員図鑑</h2>
+                <p class="sec-lead">多様なバックグラウンドのメンバーが活躍中。職種横断でキャリアのリアルを紹介します。</p>
+                <div class="cards">
+                    <div class="card reveal">若手からリーダーまでの一日密着コンテンツのカード（ダミー）</div>
+                    <div class="card reveal">職種別インタビューのカード（ダミー）</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="reveal">
+        <nav class="foot-links" aria-label="フッターナビ">
+            <a href="#catalog">社員図鑑</a>
+            <a href="#environment">働く環境</a>
+            <a href="#numbers">数字で見る</a>
+            <a href="#faq">よくある質問</a>
+            <a href="#midcareer">中途採用</a>
+            <a href="#freshers">新卒採用</a>
+        </nav>
+
+        <!-- ① TOPへ戻るロゴ -->
+        <a href="#top" class="foot-logo" aria-label="トップへ">
+            <img src="./images/header.png" alt="ConsalLink Recruit" />
+        </a>
+
+        <!-- 住所エリア -->
+        <div class="foot-addresses" aria-label="拠点情報">
+            <!-- 本社 -->
+            <section class="addr-card">
+                <div class="addr-inner">
+                    <!-- ⑤ PCのみ表示するサムネ（本社） -->
+                    <div class="addr-thumb">
+                        <!-- ご指定のパス -->
+                        <img src="./images/osaka.png" alt="大阪本社サムネイル">
+                    </div>
+
+                    <div class="addr-body">
+                        <h3 class="addr-title">大阪本社</h3>
+                        <address class="addr-text">
+                            〒530-0015<br>
+                            大阪府大阪市北区中崎西2丁目4-12 梅田センタービル 14F
+                        </address>
+                        <div class="addr-access">
+                            <strong>アクセス</strong>
+                            <ul>
+                                <li>地下鉄谷町線 中崎町駅から徒歩5分</li>
+                                <li>阪急線 大阪梅田駅から徒歩5分</li>
+                            </ul>
+                        </div>
+                        <p class="addr-map">
+                            <a href="https://maps.app.goo.gl/izMmRtGozMFzuBmAA" target="_blank" rel="noopener">Google
+                                Map</a>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 支社 -->
+            <section class="addr-card">
+                <div class="addr-inner">
+                    <!-- ⑤ PCのみ表示するサムネ（支社） -->
+                    <div class="addr-thumb">
+                        <img src="./images/tokyo.png" alt="東京支社サムネイル">
+                    </div>
+
+                    <div class="addr-body">
+                        <h3 class="addr-title">東京支社</h3>
+                        <address class="addr-text">
+                            〒113-0033<br>
+                            東京都文京区本郷2丁目26番9号 NOVEL WORK Hongo 2F
+                        </address>
+                        <div class="addr-access">
+                            <strong>アクセス</strong>
+                            <ul>
+                                <li>地下鉄丸ノ内線 本郷三丁目駅から徒歩3分</li>
+                                <li>地下鉄大江戸線 本郷三丁目駅から徒歩4分</li>
+                            </ul>
+                        </div>
+                        <p class="addr-map">
+                            <a href="https://maps.app.goo.gl/srVxhXYtBvL5eiG17" target="_blank" rel="noopener">Google
+                                Map</a>
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div>© <span id="y"></span> ConsalLink Inc.</div>
+    </footer>
+
+
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>
