@@ -15,20 +15,16 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- 既存フォント -->
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
         rel="stylesheet">
-    <!-- 手書き風フォント（フォールバック） -->
     <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="./images/icon/favicon.ico." type="image/x-icon">
     <link rel="shortcut icon" href="./images/icon/favicon.ico." type="image/x-icon">
-
 </head>
 
 <body id="top" class="is-loading">
-    <!-- Header -->
     <header id="siteHeader">
         <a class="brand-logo" href="#top" aria-label="トップへ">
             <img src="./images/header.png" alt="ConsalLink Recruit" />
@@ -42,13 +38,11 @@
         </nav>
     </header>
 
-    <!-- Off-canvas drawer -->
     <div class="drawer-backdrop" id="backdrop" tabindex="-1" aria-hidden="true"></div>
     <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
         <div class="drawer-header">
             <strong id="drawerTitle">メニュー</strong>
         </div>
-        <!-- ▼ 並び順：働く環境 → 数字で見る → よくある質問 → 中途採用 → 新卒採用 → 社員図鑑 -->
         <ul class="drawer-list">
             <li><a class="drawer-link" href="#environment" data-close>働く環境</a></li>
             <li><a class="drawer-link" href="#numbers" data-close>数字で見る</a></li>
@@ -59,10 +53,8 @@
         </ul>
     </aside>
 
-    <!-- Hero with background video -->
     <main>
         <section class="hero" aria-label="ヒーローセクション">
-            <!-- PC/スマホの動画はJSで出し分け -->
             <video id="bgVideo" autoplay muted loop playsinline preload="auto"
                 poster="./images/hero-poster.jpg"></video>
 
@@ -72,7 +64,6 @@
                 <h1 class="handwrite">皆の為、自分を磨こう</h1>
                 <p class="lead handwrite-sub">仕事が好きと言えることは、それだけで大きな力になる</p>
 
-                <!-- ▼ 画像CTA（同サイズ画像＋白ネオン縁） -->
                 <div class="cta-wrap cta-image">
                     <a class="cta-img-link" href="#midcareer" id="midBtn" aria-label="中途採用へ">
                         <span class="cta-zoom">
@@ -96,7 +87,6 @@
                 </p>
 
                 <div class="cards env-cards">
-                    <!-- card1 -->
                     <div class="card reveal env-card env-card1">
                         <div class="env-card__body">
                             <h3 class="env-card__title">作業環境・各種制度</h3>
@@ -107,7 +97,6 @@
                         </div>
                     </div>
 
-                    <!-- card2 -->
                     <div class="card reveal env-card env-card2">
                         <div class="env-card__body">
                             <h3 class="env-card__title">福利厚生・社内イベント</h3>
@@ -121,8 +110,7 @@
             </div>
         </section>
 
-
-        <section id="numbers" class="reveal section-bg has-bgvideo" aria-label="数字で見る">
+        <section id="numbers" class="reveal section-bg has-bgvideo number-section" aria-label="数字で見る">
             <div class="sec-bg" aria-hidden="true">
                 <video class="sec-bg-video" autoplay muted loop playsinline preload="auto"
                     poster="./images/bg-numbers.jpg">
@@ -138,7 +126,6 @@
                 </p>
 
                 <div class="cards num-cards">
-                    <!-- card1: 男女比率（円グラフ） -->
                     <div class="card reveal num-card num-pie">
                         <h3 class="num-title">男女比率</h3>
                         <div class="pie-wrap">
@@ -150,7 +137,6 @@
                         </div>
                     </div>
 
-                    <!-- card2: 平均年齢（画像60% + 下に数値） -->
                     <div class="card reveal num-card num-stat num-stat-age">
                         <h3 class="num-title">平均年齢</h3>
                         <div class="num-visual">
@@ -161,7 +147,6 @@
                         </div>
                     </div>
 
-                    <!-- card3: 年間休日（画像60% + 下に数値） -->
                     <div class="card reveal num-card num-stat num-stat-holiday">
                         <h3 class="num-title">年間休日</h3>
                         <div class="num-visual">
@@ -172,7 +157,6 @@
                         </div>
                     </div>
 
-                    <!-- card4: もっと見る（中央に画像50% + 白文字） -->
                     <div class="card reveal num-card num-more">
                         <h3 class="num-title">もっと見る</h3>
                     </div>
@@ -249,22 +233,13 @@
             <a href="#freshers">新卒採用</a>
         </nav>
 
-        <!-- ① TOPへ戻るロゴ -->
         <a href="#top" class="foot-logo" aria-label="トップへ">
             <img src="./images/header.png" alt="ConsalLink Recruit" />
         </a>
 
-        <!-- 住所エリア -->
         <div class="foot-addresses" aria-label="拠点情報">
-            <!-- 本社 -->
             <section class="addr-card">
                 <div class="addr-inner">
-                    <!-- ⑤ PCのみ表示するサムネ（本社） -->
-                    <div class="addr-thumb">
-                        <!-- ご指定のパス -->
-                        <img src="./images/osaka.png" alt="大阪本社サムネイル">
-                    </div>
-
                     <div class="addr-body">
                         <h3 class="addr-title">大阪本社</h3>
                         <address class="addr-text">
@@ -286,14 +261,8 @@
                 </div>
             </section>
 
-            <!-- 支社 -->
             <section class="addr-card">
                 <div class="addr-inner">
-                    <!-- ⑤ PCのみ表示するサムネ（支社） -->
-                    <div class="addr-thumb">
-                        <img src="./images/tokyo.png" alt="東京支社サムネイル">
-                    </div>
-
                     <div class="addr-body">
                         <h3 class="addr-title">東京支社</h3>
                         <address class="addr-text">
@@ -318,8 +287,6 @@
 
         <div>© <span id="y"></span> ConsalLink Inc.</div>
     </footer>
-
-
 
     <script src="script.js" defer></script>
 </body>

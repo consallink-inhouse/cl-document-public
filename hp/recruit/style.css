@@ -40,7 +40,7 @@ body.is-ready {
 @font-face {
     font-family: 'NagurigakiCrayon';
     src: url('./fonts/crayon_1-1.ttf') format('truetype');
-    font-display: swap;
+    font-display: swap
 }
 
 #siteHeader {
@@ -88,7 +88,7 @@ body.is-ready {
     border: 1px solid rgba(255, 255, 255, .85);
     background: rgba(255, 255, 255, .08);
     transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
-    box-shadow: 0 0 0px rgba(255, 255, 255, .6), 0 0 14px rgba(153, 204, 255, .45), 0 0 26px rgba(30, 136, 255, .25);
+    box-shadow: 0 0 0 rgba(255, 255, 255, .6), 0 0 14px rgba(153, 204, 255, .45), 0 0 26px rgba(30, 136, 255, .25);
     position: relative;
     isolation: isolate;
 }
@@ -96,7 +96,7 @@ body.is-ready {
 .hamburger:hover {
     transform: translateY(-1px);
     background: rgba(255, 255, 255, .14);
-    box-shadow: 0 0 0px rgba(255, 255, 255, .8), 0 0 20px rgba(153, 204, 255, .55), 0 0 34px rgba(30, 136, 255, .35)
+    box-shadow: 0 0 0 rgba(255, 255, 255, .8), 0 0 20px rgba(153, 204, 255, .55), 0 0 34px rgba(30, 136, 255, .35)
 }
 
 .hamburger.is-open {
@@ -210,7 +210,7 @@ body.is-ready {
     opacity: 0;
     pointer-events: none;
     transition: opacity .35s ease, backdrop-filter .35s ease;
-    z-index: 40
+    z-index: 40;
 }
 
 .drawer {
@@ -237,7 +237,7 @@ body.is-ready {
     width: 60%;
     background: radial-gradient(600px 400px at -10% 20%, rgba(30, 136, 255, .18), transparent 60%);
     pointer-events: none;
-    filter: blur(6px)
+    filter: blur(6px);
 }
 
 .drawer-header {
@@ -274,7 +274,7 @@ body.is-ready {
     font-weight: 700;
     background: linear-gradient(180deg, rgba(255, 255, 255, .9), rgba(255, 255, 255, .65));
     border: 1px solid var(--border);
-    transition: transform .22s ease, box-shadow .22s ease, background .22s ease, border-color .22s ease
+    transition: transform .22s ease, box-shadow .22s ease, background .22s ease, border-color .22s ease;
 }
 
 .drawer-link:hover {
@@ -502,7 +502,7 @@ body.is-ready {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease
+    transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease;
 }
 
 .btn:hover {
@@ -520,21 +520,6 @@ body.is-ready {
     background: linear-gradient(180deg, #fff, rgba(255, 255, 255, .86));
     border: 1px solid rgba(30, 136, 255, .85);
     box-shadow: 0 0 8px rgba(116, 180, 255, .4)
-}
-
-@media (max-width:640px) {
-    .cta-wrap {
-        gap: 12px;
-        justify-content: space-between;
-        flex-wrap: nowrap
-    }
-
-    .cta-wrap .btn {
-        min-width: 0;
-        flex: 1 1 48%;
-        padding: 12px 10px;
-        font-size: 14px
-    }
 }
 
 .cta-image {
@@ -583,8 +568,8 @@ body.is-ready {
     filter: blur(3px);
     will-change: transform;
     backface-visibility: hidden;
-    transform-origin: center center;
-    transition: transform 320ms cubic-bezier(.22, 1, .36, 1);
+    transform-origin: center;
+    transition: transform 320ms cubic-bezier(.22, 1, .36, 1)
 }
 
 @keyframes cta-zoom-pop {
@@ -635,24 +620,13 @@ body.hero-cta-ready .cta-img-link:nth-child(2) .cta-zoom {
     object-fit: cover;
     transition: transform 360ms cubic-bezier(.22, 1, .36, 1), filter 360ms ease;
     will-change: transform;
-    transform: none;
+    transform: none
 }
 
 .cta-img-link:hover img,
 .cta-img-link:focus-visible img {
     transform: scale(1.04);
     filter: brightness(1.03)
-}
-
-@media (max-width:640px) {
-    .cta-image {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px
-    }
-
-    .cta-img-link {
-        border-radius: 14px
-    }
 }
 
 section {
@@ -705,12 +679,6 @@ section {
     padding: 18px;
     min-height: 120px;
     box-shadow: var(--shadow)
-}
-
-@media (min-width:720px) {
-    .card {
-        grid-column: span 6
-    }
 }
 
 #catalog.section-bg,
@@ -792,11 +760,40 @@ footer {
     color: #ffffff;
     text-decoration: none;
     font-size: 14px;
-    opacity: .95
+    opacity: .95;
+    position: relative;
+    transition: color .2s ease, transform .2s ease, opacity .2s ease, text-shadow .2s ease
 }
 
 .foot-links a:hover {
     opacity: 1
+}
+
+.foot-links a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, var(--primary-300), #ffffff);
+    border-radius: 2px;
+    box-shadow: 0 0 8px rgba(255, 255, 255, .45);
+    transition: width .28s cubic-bezier(.22, 1, .36, 1);
+}
+
+.foot-links a:hover,
+.foot-links a:focus-visible {
+    opacity: 1;
+    color: #ffffff;
+    transform: translateY(-1px);
+    text-shadow: 0 0 8px rgba(255, 255, 255, .35)
+}
+
+.foot-links a:hover::after,
+.foot-links a:focus-visible::after {
+    width: 70%
 }
 
 .foot-logo {
@@ -824,33 +821,65 @@ footer {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 16px;
-    text-align: left;
+    text-align: left
 }
 
 .addr-card {
     grid-column: span 12;
     background: rgba(255, 255, 255, .08);
     border-radius: 8px;
-    padding: 0px;
+    padding: 0;
     color: #ffffff;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .08)
 }
 
 .addr-inner {
-    display: block
-}
-
-.addr-thumb {
-    display: none
-}
-
-.addr-thumb img {
-    width: 88px;
-    height: 88px;
-    object-fit: cover;
+    position: relative;
+    overflow: hidden;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, .5);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, .12)
+    min-height: clamp(170px, 28vw, 220px);
+    background: none !important
+}
+
+.foot-addresses .addr-card:nth-child(1) {
+    --addr-bg: url("./images/osaka.png")
+}
+
+.foot-addresses .addr-card:nth-child(2) {
+    --addr-bg: url("./images/tokyo.png")
+}
+
+.foot-addresses .addr-inner::before {
+    content: "";
+    position: absolute;
+    inset: -16px;
+    z-index: 0;
+    background-image: var(--addr-bg);
+    background-size: cover;
+    background-position: center;
+    filter: brightness(.82) saturate(.9) contrast(1.05);
+    -webkit-mask-image: radial-gradient(140% 140% at 50% 50%, #000 62%, rgba(0, 0, 0, 0) 100%);
+    mask-image: radial-gradient(140% 140% at 50% 50%, #000 62%, rgba(0, 0, 0, 0) 100%);
+}
+
+.foot-addresses .addr-inner::after {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    z-index: 0;
+    border-radius: 16px;
+    background: radial-gradient(120% 140% at 50% 10%, rgba(0, 0, 0, .40), rgba(0, 0, 0, 0) 70%), linear-gradient(180deg, rgba(0, 12, 28, .35), rgba(0, 12, 28, .45));
+    box-shadow: inset 0 0 120px rgba(0, 0, 0, .38), inset 0 0 220px rgba(0, 0, 0, .28);
+    filter: blur(.4px);
+}
+
+.addr-body {
+    position: relative;
+    z-index: 1;
+    padding: 16px 14px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, .10), rgba(0, 0, 0, .08));
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .40)
 }
 
 .addr-title {
@@ -859,7 +888,7 @@ footer {
     color: #fff;
     font-size: 18px;
     position: relative;
-    padding-bottom: 6px;
+    padding-bottom: 6px
 }
 
 .addr-title::after {
@@ -922,305 +951,6 @@ footer {
     background: #eaf3ff
 }
 
-@media (min-width:768px) {
-    .addr-card {
-        grid-column: span 6
-    }
-
-    .addr-inner {
-        display: grid;
-        grid-template-columns: 96px 1fr;
-        gap: 14px;
-        align-items: start
-    }
-
-    .addr-thumb {
-        display: block
-    }
-
-    .addr-title {
-        font-size: 20px
-    }
-}
-
-@media (max-width:640px) {
-    .addr-title {
-        font-size: 16px
-    }
-
-    .addr-text {
-        font-size: 14px
-    }
-
-    .addr-access li,
-    .addr-access>strong,
-    .addr-map a {
-        font-size: 13px
-    }
-
-    footer {
-        padding-left: 8px;
-        padding-right: 8px
-    }
-
-    .foot-addresses {
-        padding-left: 0;
-        padding-right: 0
-    }
-
-    .addr-card {
-        border-radius: 12px
-    }
-}
-
-@media (prefers-reduced-motion:reduce) {
-    .cta-img-link {
-        transition: none
-    }
-
-    .cta-zoom {
-        transition: none
-    }
-
-    body.hero-cta-ready .cta-img-link .cta-zoom {
-        animation: none;
-        opacity: 1;
-        transform: none;
-        filter: none
-    }
-
-    .cta-img-link img {
-        transition: none
-    }
-}
-
-/* ====== Footer addresses: desktop background image overlaid with dark + blurred corners ====== */
-@media (min-width: 768px) {
-
-    /* カードごとに背景画像を割当（1枚目=大阪, 2枚目=東京） */
-    .foot-addresses .addr-card:nth-child(1) {
-        --addr-bg: url("./images/osaka.png");
-    }
-
-    .foot-addresses .addr-card:nth-child(2) {
-        --addr-bg: url("./images/tokyo.png");
-    }
-
-    /* 枠線が目立ち過ぎないよう少しだけ控えめに */
-    .foot-addresses .addr-card {
-        border-color: rgba(255, 255, 255, .18);
-        background: rgba(255, 255, 255, .04);
-    }
-
-    /* 背景は addr-inner に設定。テキストは上に重ねる */
-    .foot-addresses .addr-inner {
-        display: block;
-        /* 既存のgrid指定を上書き */
-        position: relative;
-        overflow: hidden;
-        border-radius: 12px;
-        min-height: 190px;
-        background-image: var(--addr-bg);
-        background-size: cover;
-        background-position: center;
-    }
-
-    /* 以前のサムネ枠はPCでは非表示に（背景化したため） */
-    .foot-addresses .addr-thumb {
-        display: none;
-    }
-
-    /* 暗めのオーバーレイ（読みやすさ向上） */
-    .foot-addresses .addr-inner::before {
-        content: "";
-        position: absolute;
-        inset: -6px;
-        border-radius: 14px;
-        background: linear-gradient(180deg, rgba(0, 12, 28, .35), rgba(0, 12, 28, .45));
-        z-index: 0;
-    }
-
-    /* 角のビネット（ぼかし）で枠線の主張を抑える */
-    .foot-addresses .addr-inner::after {
-        content: "";
-        position: absolute;
-        inset: -10px;
-        border-radius: 18px;
-        pointer-events: none;
-        box-shadow:
-            inset 0 0 80px rgba(0, 0, 0, .35),
-            inset 0 0 140px rgba(0, 0, 0, .35);
-        filter: blur(2px);
-        z-index: 0;
-    }
-
-    /* テキストボックス（ごく薄い面＋テキストを白寄りに） */
-    .foot-addresses .addr-body {
-        position: relative;
-        z-index: 1;
-        padding: 12px;
-        border-radius: 10px;
-        background: linear-gradient(180deg, rgba(0, 0, 0, .10), rgba(0, 0, 0, .08));
-        color: #fff;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, .35);
-    }
-
-    .foot-addresses .addr-title {
-        color: #fff;
-    }
-
-    .foot-addresses .addr-text,
-    .foot-addresses .addr-access li,
-    .foot-addresses .addr-access>strong {
-        color: #f5f9ff;
-    }
-
-    /* 地図ボタンは従来の白ボタンのまま視認性キープ */
-    .foot-addresses .addr-map a {
-        background: #fff;
-        color: #0b294a;
-    }
-}
-
-
-/* ===== Footer address: 背景画像を“ぼかし縁”で溶け込ませる（PC/スマホ共通） ===== */
-
-/* 各カードに使う背景画像を割当（1=大阪, 2=東京） */
-.foot-addresses .addr-card:nth-child(1) {
-    --addr-bg: url("./images/osaka.png");
-}
-
-.foot-addresses .addr-card:nth-child(2) {
-    --addr-bg: url("./images/tokyo.png");
-}
-
-/* カードの枠線は少し控えめに */
-.foot-addresses .addr-card {
-    border-color: rgba(255, 255, 255, .18);
-    background: rgba(255, 255, 255, .04);
-}
-
-/* 背景は addr-inner の擬似要素で敷く（本体は背景を持たせない） */
-.foot-addresses .addr-inner {
-    position: relative;
-    overflow: hidden;
-    border-radius: 12px;
-    min-height: clamp(170px, 28vw, 220px);
-    background: none !important;
-}
-
-/* 背景画像レイヤー（PowerPointの“ぼかし縁”風：マスクで縁をフェード） */
-.foot-addresses .addr-inner::before {
-    content: "";
-    position: absolute;
-    inset: -16px;
-    z-index: 0;
-    background-image: var(--addr-bg);
-    background-size: cover;
-    background-position: center;
-    filter: brightness(.82) saturate(.9) contrast(1.05);
-    /* ソフトエッジ（マスクで外側へ向かって透明化） */
-    -webkit-mask-image: radial-gradient(140% 140% at 50% 50%, #000 62%, rgba(0, 0, 0, 0) 100%);
-    mask-image: radial-gradient(140% 140% at 50% 50%, #000 62%, rgba(0, 0, 0, 0) 100%);
-}
-
-/* 暗めオーバーレイ＋ビネット（角をさらに柔らかく） */
-.foot-addresses .addr-inner::after {
-    content: "";
-    position: absolute;
-    inset: -8px;
-    z-index: 0;
-    border-radius: 16px;
-    background:
-        radial-gradient(120% 140% at 50% 10%, rgba(0, 0, 0, .40), rgba(0, 0, 0, 0) 70%),
-        linear-gradient(180deg, rgba(0, 12, 28, .35), rgba(0, 12, 28, .45));
-    box-shadow:
-        inset 0 0 120px rgba(0, 0, 0, .38),
-        inset 0 0 220px rgba(0, 0, 0, .28);
-    filter: blur(.4px);
-}
-
-/* テキストは上に。読みやすさ用の軽い面＆シャドウ */
-.foot-addresses .addr-body {
-    position: relative;
-    z-index: 1;
-    padding: 16px 14px;
-    background: linear-gradient(180deg, rgba(0, 0, 0, .10), rgba(0, 0, 0, .08));
-    color: #fff;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, .40);
-}
-
-.foot-addresses .addr-title {
-    color: #fff
-}
-
-.foot-addresses .addr-text,
-.foot-addresses .addr-access li,
-.foot-addresses .addr-access>strong {
-    color: #f5f9ff
-}
-
-/* 既存のサムネ枠は背景化したので非表示のまま */
-.foot-addresses .addr-thumb {
-    display: none
-}
-
-/* PC時：カードを2カラムにしつつ同じ効果を維持 */
-@media (min-width:768px) {
-    .addr-card {
-        grid-column: span 6
-    }
-
-    .foot-addresses .addr-inner {
-        min-height: 200px;
-        border-radius: 12px
-    }
-}
-
-/* === Footer links: hover/focus animation === */
-.foot-links a {
-    position: relative;
-    transition: color .2s ease, transform .2s ease, opacity .2s ease, text-shadow .2s ease;
-}
-
-.foot-links a::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -4px;
-    width: 0;
-    height: 2px;
-    transform: translateX(-50%);
-    background: linear-gradient(90deg, var(--primary-300), #ffffff);
-    border-radius: 2px;
-    box-shadow: 0 0 8px rgba(255, 255, 255, .45);
-    transition: width .28s cubic-bezier(.22, 1, .36, 1);
-}
-
-.foot-links a:hover,
-.foot-links a:focus-visible {
-    opacity: 1;
-    color: #ffffff;
-    transform: translateY(-1px);
-    text-shadow: 0 0 8px rgba(255, 255, 255, .35);
-}
-
-.foot-links a:hover::after,
-.foot-links a:focus-visible::after {
-    width: 70%;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .foot-links a {
-        transition: none;
-    }
-
-    .foot-links a::after {
-        transition: none;
-    }
-}
-
-/* ====== 働く環境：カード背景＋ホバー演出（CTAと同系のズーム） ====== */
 #environment .env-card {
     position: relative;
     overflow: hidden;
@@ -1231,7 +961,6 @@ footer {
     min-height: 200px;
 }
 
-/* 背景を疑似要素で敷き、ぼかし縁(マスク)で枠をなじませる */
 #environment .env-card::before {
     content: "";
     position: absolute;
@@ -1240,44 +969,35 @@ footer {
     background-size: cover;
     background-position: center;
     transition: transform 360ms cubic-bezier(.22, 1, .36, 1), filter 360ms ease;
-    filter: brightness(.82) saturate(.95) contrast(1.05);
+    filter: brightness(.88) saturate(.98) contrast(1.03);
     -webkit-mask-image: radial-gradient(140% 140% at 50% 50%, #000 66%, rgba(0, 0, 0, 0) 100%);
     mask-image: radial-gradient(140% 140% at 50% 50%, #000 66%, rgba(0, 0, 0, 0) 100%);
 }
 
-/* 画像パス指定 */
 #environment .env-card1::before {
-    background-image: url("./images/environment/card1.png");
+    background-image: url("./images/environment/card1.png")
 }
 
 #environment .env-card2::before {
-    background-image: url("./images/environment/card2.png");
+    background-image: url("./images/environment/card2.png")
 }
 
-/* さらに読みやすくする薄い暗幕＋ビネット */
 #environment .env-card::after {
     content: "";
     position: absolute;
     inset: -8px;
     z-index: 0;
     border-radius: 22px;
-    background:
-        radial-gradient(120% 140% at 50% 10%, rgba(0, 0, 0, .38), rgba(0, 0, 0, 0) 70%),
-        linear-gradient(180deg, rgba(0, 12, 28, .28), rgba(0, 12, 28, .42));
-    box-shadow:
-        inset 0 0 120px rgba(0, 0, 0, .34),
-        inset 0 0 200px rgba(0, 0, 0, .24);
-    filter: blur(.4px);
+    background: radial-gradient(120% 140% at 50% 10%, rgba(0, 0, 0, .28), rgba(0, 0, 0, 0) 70%), linear-gradient(180deg, rgba(0, 12, 28, .20), rgba(0, 12, 28, .32));
+    box-shadow: inset 0 0 110px rgba(0, 0, 0, .26), inset 0 0 180px rgba(0, 0, 0, .18);
 }
 
-/* ホバー（CTAと同系）：背景だけズーム＋少し明るく */
 #environment .env-card:hover::before,
 #environment .env-card:focus-within::before {
     transform: scale(1.04);
-    filter: brightness(1.03) saturate(.98);
+    filter: brightness(1.03) saturate(.98)
 }
 
-/* テキストレイヤー */
 #environment .env-card__body {
     position: relative;
     z-index: 1;
@@ -1287,7 +1007,7 @@ footer {
     height: 100%;
     padding: 16px 16px 44px;
     color: #fff;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, .40);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .40)
 }
 
 #environment .env-card__title {
@@ -1295,56 +1015,8 @@ footer {
     font-weight: 800;
     color: #fff;
     font-size: clamp(16px, 2.1vw, 20px);
-}
-
-/* 右下の矢印アイコン */
-#environment .env-card__arrow {
-    position: absolute;
-    right: 12px;
-    bottom: 10px;
-    color: #fff;
-    opacity: .95;
-    transition: transform 280ms cubic-bezier(.22, 1, .36, 1), opacity .2s ease;
-}
-
-#environment .env-card:hover .env-card__arrow,
-#environment .env-card:focus-within .env-card__arrow {
-    transform: translateX(2px);
-    opacity: 1;
-}
-
-/* モバイル最適化（高さ少し低め） */
-@media (max-width:640px) {
-    #environment .env-card {
-        min-height: 180px;
-        border-radius: 16px
-    }
-
-    #environment .env-card__body {
-        padding: 14px 14px 40px
-    }
-}
-
-/* ===== 働く環境：指定の修正（矢印アイコン・下線・オーバーレイ軽減・説明文） ===== */
-
-/* 画像の黒味を“少しだけ”薄く */
-#environment .env-card::before {
-    filter: brightness(.88) saturate(.98) contrast(1.03);
-}
-
-#environment .env-card::after {
-    background:
-        radial-gradient(120% 140% at 50% 10%, rgba(0, 0, 0, .28), rgba(0, 0, 0, 0) 70%),
-        linear-gradient(180deg, rgba(0, 12, 28, .20), rgba(0, 12, 28, .32));
-    box-shadow:
-        inset 0 0 110px rgba(0, 0, 0, .26),
-        inset 0 0 180px rgba(0, 0, 0, .18);
-}
-
-/* タイトルに下線（フッター住所と同系） */
-#environment .env-card__title {
     position: relative;
-    padding-bottom: 6px;
+    padding-bottom: 6px
 }
 
 #environment .env-card__title::after {
@@ -1359,45 +1031,35 @@ footer {
     box-shadow: 0 2px 10px rgba(30, 136, 255, .35);
 }
 
-/* 説明文 */
 #environment .env-card__desc {
     margin: 8px 0 0;
     color: #f5f9ff;
     line-height: 1.7;
     font-size: clamp(14px, 1.9vw, 15px);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, .35);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .35)
 }
 
-/* 矢印は画像版に変更 */
 #environment .env-card__arrow {
     position: absolute;
     right: 12px;
     bottom: 10px;
     opacity: .95;
-    transition: transform 280ms cubic-bezier(.22, 1, .36, 1), opacity .2s ease;
+    transition: transform 280ms cubic-bezier(.22, 1, .36, 1), opacity .2s ease
 }
 
 #environment .env-card__arrow img {
     display: block;
     width: 28px;
     height: 28px;
-    pointer-events: none;
+    pointer-events: none
 }
 
 #environment .env-card:hover .env-card__arrow,
 #environment .env-card:focus-within .env-card__arrow {
     transform: translateX(2px);
-    opacity: 1;
+    opacity: 1
 }
 
-/* モバイル微調整 */
-@media (max-width:640px) {
-    #environment .env-card__desc {
-        font-size: 13px
-    }
-}
-
-/* ===== 数字で見る：レイアウト（PC=4カラム、SP=2x2） ===== */
 .num-cards {
     display: grid;
     gap: 16px;
@@ -1408,25 +1070,13 @@ footer {
     grid-column: auto !important
 }
 
-@media (min-width:960px) {
-    .num-cards {
-        grid-template-columns: repeat(4, 1fr)
-    }
-}
-
-@media (max-width: 640px){
-  .num-cards{
-    grid-template-columns: 1fr;
-  }
-}
-
-/* 見出し下線（フッター住所と同系） */
 #numbers .num-title {
     position: relative;
     margin: 0 0 10px;
     font-weight: 800;
     font-size: clamp(16px, 2.1vw, 20px);
     padding-bottom: 6px;
+    color: var(--primary-700) !important;
 }
 
 #numbers .num-title::after {
@@ -1441,7 +1091,24 @@ footer {
     box-shadow: 0 2px 10px rgba(30, 136, 255, .35);
 }
 
-/* ===== card1: 円グラフ（CSSだけでアニメ） ===== */
+#numbers .num-card {
+    color: var(--primary-700)
+}
+
+#numbers .num-card .unit,
+#numbers .num-card .pie-legend,
+#numbers .num-card .pie-legend li {
+    color: var(--primary-700)
+}
+
+#numbers .num-card .num-value .num {
+    background: linear-gradient(180deg, #7fb7ff, #1e88ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 2px 10px rgba(30, 136, 255, .18);
+}
+
 @property --p {
     syntax: "<angle>";
     initial-value: 0deg;
@@ -1458,19 +1125,58 @@ footer {
 .num-pie .pie {
     --male: #1e88ff;
     --female: #a8cdfd;
-    --hole: 58%;
-    width: 160px;
-    height: 160px;
+    --hole: 54%;
+    position: relative;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     background: conic-gradient(var(--male) 0 var(--p), var(--female) var(--p) 360deg);
     -webkit-mask: radial-gradient(circle, #0000 calc(var(--hole) - 1%), #000 var(--hole));
     mask: radial-gradient(circle, #0000 calc(var(--hole) - 1%), #000 var(--hole));
-    transform: scale(.94);
+    box-shadow: 0 6px 18px rgba(30, 136, 255, .12), inset 0 4px 10px rgba(255, 255, 255, .12);
+    transform: scale(.96);
+}
+
+.num-pie .pie::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    background: conic-gradient(transparent 0 var(--p), rgba(255, 255, 255, .85) var(--p) calc(var(--p) + 1.2deg), transparent calc(var(--p) + 1.2deg) 360deg);
+    -webkit-mask: radial-gradient(circle, #0000 calc(var(--hole) - 2%), #000 calc(var(--hole) - 1%)), radial-gradient(circle, #000 100%, #000 100%);
+    mask: radial-gradient(circle, #0000 calc(var(--hole) - 2%), #000 calc(var(--hole) - 1%)), radial-gradient(circle, #000 100%, #000 100%);
+    filter: blur(.8px);
+    pointer-events: none;
+}
+
+.num-pie .pie::after {
+    content: "60%";
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-weight: 900;
+    font-size: 28px;
+    letter-spacing: .02em;
+    color: var(--primary-700);
+    text-shadow: 0 2px 10px rgba(30, 136, 255, .18), 0 0 18px rgba(30, 136, 255, .10);
+}
+
+.num-pie .pie-wrap::after {
+    content: "";
+    width: 196px;
+    height: 196px;
+    margin-top: -188px;
+    border-radius: 50%;
+    background: repeating-conic-gradient(from 0deg, rgba(30, 136, 255, .10) 0 6deg, transparent 6deg 12deg);
+    -webkit-mask: radial-gradient(circle, #0000 66%, #000 67%);
+    mask: radial-gradient(circle, #0000 66%, #000 67%);
+    filter: blur(.6px);
+    pointer-events: none;
 }
 
 .reveal.is-visible.num-card.num-pie .pie {
-    animation: pie-fill 1200ms cubic-bezier(.22, 1, .36, 1) .12s forwards,
-        pie-pop 600ms cubic-bezier(.22, 1, .36, 1) .12s both;
+    animation: pie-fill 1200ms cubic-bezier(.22, 1, .36, 1) .12s forwards, pie-pop 600ms cubic-bezier(.22, 1, .36, 1) .12s both
 }
 
 @keyframes pie-fill {
@@ -1479,7 +1185,6 @@ footer {
     }
 }
 
-/* 60% * 360 = 216deg */
 @keyframes pie-pop {
     0% {
         transform: scale(.86)
@@ -1520,18 +1225,33 @@ footer {
     background: #a8cdfd
 }
 
-/* ===== card2/3: 数値カード ===== */
-.num-stat .num-stat-body {
-    display: flex;
-    align-items: center;
-    gap: 12px
+#numbers .num-stat .num-visual {
+    display: grid;
+    place-items: center;
+    margin: 6px 0 2px
 }
 
-.num-icon {
-    width: 36px;
-    height: 36px;
-    object-fit: contain;
-    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, .18))
+#numbers .num-stat .num-hero {
+    width: 85%;
+    max-width: none;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 4px 14px rgba(30, 136, 255, .18));
+    transition: transform 280ms cubic-bezier(.22, 1, .36, 1), filter 280ms ease;
+}
+
+#numbers .num-stat:hover .num-hero,
+#numbers .num-stat:focus-within .num-hero {
+    transform: translateY(-2px) scale(1.02);
+    filter: drop-shadow(0 8px 22px rgba(30, 136, 255, .22))
+}
+
+#numbers .num-stat .num-value {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 6px;
+    margin-top: 4px
 }
 
 .num-value {
@@ -1550,7 +1270,7 @@ footer {
     color: transparent;
     text-shadow: 0 2px 12px rgba(30, 136, 255, .25);
     transform: translateY(6px);
-    opacity: 0;
+    opacity: 0
 }
 
 .num-value .unit {
@@ -1569,194 +1289,12 @@ footer {
     }
 }
 
-/* ===== card4: もっと見る（背景画像＋ビネット） ===== */
-.num-more {
-    position: relative;
-    overflow: hidden
-}
-
-.num-more::before {
-    content: "";
-    position: absolute;
-    inset: -14px;
-    z-index: 0;
-    background: url("./images/data.png") center/cover no-repeat;
-    filter: brightness(.9) saturate(.95);
-    -webkit-mask: radial-gradient(140% 140% at 50% 50%, #000 66%, rgba(0, 0, 0, 0) 100%);
-    mask: radial-gradient(140% 140% at 50% 50%, #000 66%, rgba(0, 0, 0, 0) 100%);
-    transition: transform 360ms cubic-bezier(.22, 1, .36, 1), filter 360ms ease;
-}
-
-.num-more::after {
-    content: "";
-    position: absolute;
-    inset: -8px;
-    z-index: 0;
-    border-radius: 22px;
-    background:
-        radial-gradient(120% 140% at 50% 10%, rgba(0, 0, 0, .30), rgba(0, 0, 0, 0) 70%),
-        linear-gradient(180deg, rgba(0, 12, 28, .22), rgba(0, 12, 28, .32));
-    box-shadow: inset 0 0 120px rgba(0, 0, 0, .26), inset 0 0 200px rgba(0, 0, 0, .18);
-}
-
-.num-more:hover::before,
-.num-more:focus-within::before {
-    transform: scale(1.04);
-    filter: brightness(1.02)
-}
-
-/* ===== 数字で見る：タイトル色・下線幅・カード内の文字色をブルー基調に ===== */
-#numbers .num-title {
-    color: var(--primary-700) !important;
-}
-
-#numbers .num-title::after {
-    width: 115px !important;
-}
-
-#numbers .num-card {
-    color: var(--primary-700);
-}
-
-#numbers .num-card .unit,
-#numbers .num-card .pie-legend,
-#numbers .num-card .pie-legend li {
-    color: var(--primary-700);
-}
-
-/* 数字の見せ方をブルーグラデに（読みやすく・力強く） */
-#numbers .num-card .num-value .num {
-    background: linear-gradient(180deg, #7fb7ff, #1e88ff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: 0 2px 10px rgba(30, 136, 255, .18);
-}
-
-/* ===== 男女比率の円グラフを“もっとかっこよく”：厚み・境界ハイライト・グロウ・センター数値 ===== */
-
-/* ドーナツを少し太く、立体感アップ */
-#numbers .num-pie .pie {
-    --male: #1e88ff;
-    --female: #a8cdfd;
-    --hole: 54%;
-    position: relative;
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    background: conic-gradient(var(--male) 0 var(--p), var(--female) var(--p) 360deg);
-    -webkit-mask: radial-gradient(circle, #0000 calc(var(--hole) - 1%), #000 var(--hole));
-    mask: radial-gradient(circle, #0000 calc(var(--hole) - 1%), #000 var(--hole));
-    box-shadow:
-        0 6px 18px rgba(30, 136, 255, .12),
-        inset 0 4px 10px rgba(255, 255, 255, .12);
-    transform: scale(.96);
-}
-
-/* 1) 男性/女性の境界に沿って“光の縁”が走る（アニメ角度に同期） */
-#numbers .num-pie .pie::before {
-    content: "";
-    position: absolute;
-    inset: -2px;
-    border-radius: 50%;
-    background:
-        conic-gradient(transparent 0 var(--p),
-            rgba(255, 255, 255, .85) var(--p) calc(var(--p) + 1.2deg),
-            transparent calc(var(--p) + 1.2deg) 360deg);
-    -webkit-mask:
-        radial-gradient(circle, #0000 calc(var(--hole) - 2%), #000 calc(var(--hole) - 1%))
-        /* 内側で切り抜き */
-        , radial-gradient(circle, #000 100%, #000 100%);
-    /* 外側はそのまま */
-    ;
-    mask:
-        radial-gradient(circle, #0000 calc(var(--hole) - 2%), #000 calc(var(--hole) - 1%)), radial-gradient(circle, #000 100%, #000 100%);
-    filter: blur(.8px);
-    pointer-events: none;
-}
-
-/* 2) 外周にさりげないリング／目盛り風のテクスチャ */
-#numbers .num-pie .pie::after {
-    content: "60%";
-    position: absolute;
-    inset: 0;
-    display: grid;
-    place-items: center;
-    font-weight: 900;
-    font-size: 28px;
-    letter-spacing: .02em;
-    color: var(--primary-700);
-    text-shadow: 0 2px 10px rgba(30, 136, 255, .18), 0 0 18px rgba(30, 136, 255, .10);
-}
-
-#numbers .num-pie .pie::marker {
-    display: none
-}
-
-/* 保険 */
-
-/* 3) 台座の“目盛り”リング（うっすら） */
-#numbers .num-pie .pie-wrap::after {
-    content: "";
-    width: 196px;
-    height: 196px;
-    margin-top: -188px;
-    /* pieの外周に重ねる */
-    border-radius: 50%;
-    background:
-        repeating-conic-gradient(from 0deg,
-            rgba(30, 136, 255, .10) 0 6deg,
-            transparent 6deg 12deg);
-    -webkit-mask: radial-gradient(circle, #0000 66%, #000 67%);
-    mask: radial-gradient(circle, #0000 66%, #000 67%);
-    filter: blur(.6px);
-    pointer-events: none;
-}
-
-/* アニメ（塗りとポップ）は既存のものに合わせて維持 */
-.reveal.is-visible.num-card.num-pie .pie {
-    animation:
-        pie-fill 1200ms cubic-bezier(.22, 1, .36, 1) .12s forwards,
-        pie-pop 600ms cubic-bezier(.22, 1, .36, 1) .12s both;
-}
-
-/* ========== card2 / card3：画像60%＋下に数値 ========== */
-#numbers .num-stat .num-visual {
-    display: grid;
-    place-items: center;
-    margin: 6px 0 2px;
-}
-
-#numbers .num-stat .num-hero {
-    width: 85%;
-    max-width: none;
-    height: auto;
-    display: block;
-    filter: drop-shadow(0 4px 14px rgba(30, 136, 255, .18));
-    transition: transform 280ms cubic-bezier(.22, 1, .36, 1), filter 280ms ease;
-}
-
-#numbers .num-stat:hover .num-hero,
-#numbers .num-stat:focus-within .num-hero {
-    transform: translateY(-2px) scale(1.02);
-    filter: drop-shadow(0 8px 22px rgba(30, 136, 255, .22));
-}
-
-/* 既存の数値アニメをそのまま適用（下に来てもOK） */
-#numbers .num-stat .num-value {
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
-    gap: 6px;
-    margin-top: 4px;
-}
-
-/* ========== card4：中央に背景画像50%＋白文字中央 ========== */
 #numbers .num-more {
     position: relative;
     overflow: hidden;
     display: grid;
     place-items: center;
+    color: #ffffff
 }
 
 #numbers .num-more::before {
@@ -1764,17 +1302,16 @@ footer {
     position: absolute;
     inset: 0;
     z-index: 0;
-    background: url("./images/numbers/data.png") center/50% no-repeat;
-    filter: brightness(1) saturate(.98);
+    background: url("./images/numbers/data.png") center/72% no-repeat;
+    filter: brightness(1) saturate(.98)
 }
 
 #numbers .num-more::after {
-    /* うっすらビネットで文字を読みやすく */
     content: "";
     position: absolute;
     inset: 0;
     z-index: 0;
-    background: radial-gradient(80% 80% at 50% 50%, rgba(0, 0, 0, .22), rgba(0, 0, 0, 0) 60%);
+    background: radial-gradient(80% 80% at 50% 50%, rgba(0, 0, 0, .22), rgba(0, 0, 0, 0) 60%)
 }
 
 #numbers .num-more .num-title {
@@ -1784,36 +1321,188 @@ footer {
     text-align: center;
     padding-bottom: 0;
     margin: 6px 0;
-    font-size: clamp(16px, 2.4vw, 22px);
+    font-size: clamp(16px, 2.4vw, 22px)
 }
 
 #numbers .num-more .num-title::after {
     display: none
 }
 
-/* 必要ならホバーで背景をほんの少しズーム */
 #numbers .num-more:hover::before,
 #numbers .num-more:focus-within::before {
     transform: scale(1.04);
-    transition: transform 320ms cubic-bezier(.22, 1, .36, 1);
+    transition: transform 320ms cubic-bezier(.22, 1, .36, 1)
 }
 
-/* 既存の「カード内の文字色を青」に対して、num-more は白字を維持 */
-#numbers .num-more {
-    color: #ffffff;
+@media (min-width:720px) {
+    .card {
+        grid-column: span 6
+    }
 }
 
-/* card4：画像を少し大きく */
-#numbers .num-more::before{
-  background-size: 72% !important; /* 以前: 50% */
+@media (min-width:768px) {
+    .addr-card {
+        grid-column: span 6
+    }
+
+    .foot-addresses .addr-inner {
+        min-height: 200px;
+        border-radius: 12px
+    }
 }
 
-/* スマホ時：高さを広く＆画像さらに少し大きく */
-@media (max-width: 640px){
-  #numbers .num-more{
-    min-height: 240px; /* 余裕を持たせて見やすく */
-  }
-  #numbers .num-more::before{
-    background-size: 86% !important;
-  }
+@media (min-width:960px) {
+    .num-cards {
+        grid-template-columns: repeat(4, 1fr)
+    }
+}
+
+@media (max-width:640px) {
+    .cta-wrap {
+        gap: 12px;
+        justify-content: space-between;
+        flex-wrap: nowrap
+    }
+
+    .cta-wrap .btn {
+        min-width: 0;
+        flex: 1 1 48%;
+        padding: 12px 10px;
+        font-size: 14px
+    }
+
+    .cta-image {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px
+    }
+
+    .cta-img-link {
+        border-radius: 14px
+    }
+
+    #environment .env-card {
+        min-height: 180px;
+        border-radius: 16px
+    }
+
+    #environment .env-card__body {
+        padding: 14px 14px 40px
+    }
+
+    #environment .env-card__desc {
+        font-size: 13px
+    }
+
+    footer {
+        padding-left: 8px;
+        padding-right: 8px
+    }
+
+    .foot-addresses {
+        padding-left: 0;
+        padding-right: 0
+    }
+
+    .addr-card {
+        border-radius: 12px
+    }
+
+    .addr-title {
+        font-size: 16px
+    }
+
+    .addr-text {
+        font-size: 14px
+    }
+
+    .addr-access li,
+    .addr-access>strong,
+    .addr-map a {
+        font-size: 13px
+    }
+
+    .num-cards {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px
+    }
+
+    #numbers .num-card {
+        min-height: clamp(220px, 46vw, 300px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center
+    }
+
+    #numbers .num-more {
+        min-height: clamp(220px, 46vw, 300px) !important;
+        background: none;
+        text-align: center;
+        align-items: center
+    }
+
+    #numbers .num-more::before {
+        background-size: 86% !important
+    }
+
+    #numbers .num-pie .pie {
+        width: 120px;
+        height: 120px;
+        --hole: 58%;
+        transform: scale(1)
+    }
+
+    #numbers .num-pie .pie::after {
+        font-size: 20px
+    }
+
+    #numbers .num-pie .pie-wrap::after {
+        width: 136px;
+        height: 136px;
+        margin-top: -128px
+    }
+
+    #numbers .num-pie .pie-legend {
+        font-size: 12px;
+        gap: 10px
+    }
+
+    #numbers .num-card {
+        text-align: left;
+        align-items: stretch
+    }
+
+    #numbers .num-card .num-title {
+        text-align: left;
+        align-self: stretch
+    }
+
+    #numbers .num-more .num-title {
+        text-align: center !important;
+        align-self: center !important
+    }
+}
+
+@media (prefers-reduced-motion:reduce) {
+
+    .cta-img-link,
+    .cta-zoom,
+    .cta-img-link img,
+    .foot-links a,
+    .foot-links a::after {
+        transition: none
+    }
+
+    body.hero-cta-ready .cta-img-link .cta-zoom {
+        animation: none;
+        opacity: 1;
+        transform: none;
+        filter: none
+    }
+}
+
+
+.number-section {
+    padding: 20px 20px !important;
 }
