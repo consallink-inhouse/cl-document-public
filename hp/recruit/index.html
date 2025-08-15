@@ -7,11 +7,13 @@
     <title>ConsalLink Recruit Page</title>
     <meta name="description" content="ConsalLink Recruit Page">
     <meta name="theme-color" content="#ffffff">
-    <style>
-        body.is-loading {
-            opacity: 0
-        }
-    </style>
+
+    <!-- OGP / Twitter -->
+    <meta property="og:title" content="ConsalLink Recruit Page">
+    <meta property="og:description" content="ConsalLink Recruit Page">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://example.com/ogp.jpg">
+    <meta name="twitter:card" content="summary_large_image">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,14 +22,30 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="./images/icon/favicon.ico." type="image/x-icon">
-    <link rel="shortcut icon" href="./images/icon/favicon.ico." type="image/x-icon">
+
+    <!-- favicon -->
+    <link rel="icon" href="./images/icon/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./images/icon/favicon.ico" type="image/x-icon">
 </head>
 
 <body id="top" class="is-loading">
+
+    <!-- スプラッシュ（① ロゴ画像をフェードイン＋スピナー） -->
+    <div id="splash" aria-hidden="true">
+        <div class="splash-center">
+            <img class="splash-logo" src="./images/loading.png" alt="ConsalLink Loading">
+            <div class="splash-spinner" role="status" aria-label="読み込み中"></div>
+        </div>
+    </div>
+
+    <!-- カーテン（② 右へスライドして画面を開く） -->
+    <div id="curtain" aria-hidden="true">
+        <div class="curtain-panel single"></div>
+    </div>
+
     <header id="siteHeader">
         <a class="brand-logo" href="#top" aria-label="トップへ">
-            <img src="./images/header.png" alt="ConsalLink Recruit" />
+            <img src="./images/header.png" alt="ConsalLink Recruit" loading="eager" />
         </a>
         <nav>
             <button class="hamburger" id="hamBtn" aria-label="メニューを開く" aria-controls="drawer" aria-expanded="false">
@@ -46,17 +64,37 @@
         <ul class="drawer-list">
             <li><a class="drawer-link" href="#environment" data-close>働く環境</a></li>
             <li><a class="drawer-link" href="#numbers" data-close>数字で見る</a></li>
-            <li><a class="drawer-link" href="#faq" data-close>よくある質問</a></li>
             <li><a class="drawer-link" href="#midcareer" data-close>中途採用</a></li>
             <li><a class="drawer-link" href="#freshers" data-close>新卒採用</a></li>
             <li><a class="drawer-link" href="#catalog" data-close>社員図鑑</a></li>
+            <li>
+                <a class="drawer-link ham-cta ham-cta--faq" href="#faq" data-close aria-label="よくある質問">
+                    <span class="ham-cta-zoom">
+                        <img class="ham-cta-img" src="./images/humberger/question.png" alt="">
+                    </span>
+                </a>
+            </li>
+            <li class="drawer-grid-two">
+                <a class="drawer-link ham-cta ham-cta--square" href="#midcareer" data-close aria-label="中途採用エントリー">
+                    <span class="ham-cta-zoom">
+                        <img class="ham-cta-img" src="./images/humberger/middle-entry-thum.png" alt="">
+                    </span>
+                </a>
+
+                <a class="drawer-link ham-cta ham-cta--square" href="#freshers" data-close aria-label="新卒採用エントリー">
+                    <span class="ham-cta-zoom">
+                        <img class="ham-cta-img" src="./images/humberger/new-entry-thum.png" alt="">
+                    </span>
+                </a>
+            </li>
         </ul>
     </aside>
 
-    <main>
+    <main id="main">
         <section class="hero" aria-label="ヒーローセクション">
-            <video id="bgVideo" autoplay muted loop playsinline preload="auto"
-                poster="./images/hero-poster.jpg"></video>
+            <video id="bgVideo" autoplay muted loop playsinline preload="auto" poster="">
+                <source src="./movie/top_pc.mp4" type="video/mp4">
+            </video>
 
             <div class="particles" aria-hidden="true" id="particles"></div>
 
@@ -67,23 +105,22 @@
                 <div class="cta-wrap cta-image">
                     <a class="cta-img-link" href="#midcareer" id="midBtn" aria-label="中途採用へ">
                         <span class="cta-zoom">
-                            <img src="./images/midle-career.png" alt="中途採用">
+                            <img src="./images/middle-career.png" alt="中途採用" loading="lazy">
                         </span>
                     </a>
                     <a class="cta-img-link" href="#freshers" id="freshBtn" aria-label="新卒採用へ">
                         <span class="cta-zoom">
-                            <img src="./images/new-career.png" alt="新卒採用">
+                            <img src="./images/new-career.png" alt="新卒採用" loading="lazy">
                         </span>
                     </a>
                 </div>
             </div>
         </section>
 
-        <section id="environment" class="reveal section-bg">
+        <section id="environment" class="reveal section-bg" aria-label="働く環境">
             <div class="section-inner">
                 <h2 class="sec-title">働く環境</h2>
-                <p class="sec-lead">
-                    「会社が好き」と思えるような環境を整えることは重要なミッションです。<br />もっと働きやすい職場や、モチベーションの向上につながるような制度をこれからも考え続けます。
+                <p class="sec-lead">自由な発想と挑戦を尊重する社風。<br />若手メンバーが多く、互いに刺激し合いながら成長できる活気ある職場です。
                 </p>
 
                 <div class="cards env-cards">
@@ -92,7 +129,7 @@
                             <h3 class="env-card__title">作業環境・各種制度</h3>
                             <p class="env-card__desc">実際の作業風景や資格報奨金といった各種制度についてはこちら</p>
                             <span class="env-card__arrow" aria-hidden="true">
-                                <img src="./images/icon/next.png" alt="">
+                                <img src="./images/icon/next.png" alt="" loading="lazy">
                             </span>
                         </div>
                     </div>
@@ -102,7 +139,7 @@
                             <h3 class="env-card__title">福利厚生・社内イベント</h3>
                             <p class="env-card__desc">コンサルリンク特有の福利厚生や社内イベントについてはこちら</p>
                             <span class="env-card__arrow" aria-hidden="true">
-                                <img src="./images/icon/next.png" alt="">
+                                <img src="./images/icon/next.png" alt="" loading="lazy">
                             </span>
                         </div>
                     </div>
@@ -112,8 +149,7 @@
 
         <section id="numbers" class="reveal section-bg has-bgvideo number-section" aria-label="数字で見る">
             <div class="sec-bg" aria-hidden="true">
-                <video class="sec-bg-video" autoplay muted loop playsinline preload="auto"
-                    poster="./images/bg-numbers.jpg">
+                <video class="sec-bg-video" autoplay muted loop playsinline preload="auto" poster="">
                     <source src="movie/bg-catalog.mp4" type="video/mp4" />
                 </video>
                 <div class="sec-bg-overlay"></div>
@@ -140,7 +176,7 @@
                     <div class="card reveal num-card num-stat num-stat-age">
                         <h3 class="num-title">平均年齢</h3>
                         <div class="num-visual">
-                            <img class="num-hero" src="./images/numbers/age.png" alt="">
+                            <img class="num-hero" src="./images/numbers/age.png" alt="" loading="lazy">
                         </div>
                         <div class="num-value">
                             <span class="num">31</span><span class="unit">歳</span>
@@ -150,7 +186,7 @@
                     <div class="card reveal num-card num-stat num-stat-holiday">
                         <h3 class="num-title">年間休日</h3>
                         <div class="num-visual">
-                            <img class="num-hero" src="./images/numbers/holiday.png" alt="">
+                            <img class="num-hero" src="./images/numbers/holiday.png" alt="" loading="lazy">
                         </div>
                         <div class="num-value">
                             <span class="num">125</span><span class="unit">日以上</span>
@@ -164,60 +200,143 @@
             </div>
         </section>
 
-        <section id="faq" class="reveal section-bg">
-            <div class="section-inner">
-                <h2 class="sec-title">よくある質問</h2>
-                <p class="sec-lead">選考・入社前後の疑問にお答えします。</p>
-                <div class="cards">
-                    <div class="card reveal">選考フロー（ダミー）</div>
-                    <div class="card reveal">配属/教育（ダミー）</div>
-                </div>
-            </div>
-        </section>
-
-        <section id="midcareer" class="reveal section-bg has-bgvideo" aria-label="数字で見る">
-            <div class="sec-bg" aria-hidden="true">
-                <video class="sec-bg-video" autoplay muted loop playsinline preload="auto"
-                    poster="./images/bg-numbers.jpg">
-                    <source src="movie/bg-catalog.mp4" type="video/mp4" />
-                </video>
-                <div class="sec-bg-overlay"></div>
-            </div>
-
+        <section id="midcareer" class="reveal section-bg" aria-label="中途採用">
             <div class="section-inner">
                 <h2 class="sec-title">中途採用</h2>
-                <p class="sec-lead">このセクションはダミーです。別ページにリンクする場合は a[href] を差し替えてください。</p>
-                <div class="cards">
-                    <div class="card reveal">募集要項・応募ボタン（ダミー）</div>
+                <p class="sec-lead">培った経験とスキルを活かし、新たなステージで挑戦しませんか？<br />あなたの力が会社の未来を創ります。</p>
+
+                <div class="cards env-cards">
+                    <!-- card1 -->
+                    <div class="card reveal env-card mid-card1">
+                        <div class="env-card__body">
+                            <h3 class="env-card__title">採用情報・募集要項</h3>
+                            <p class="env-card__desc">これまでの経験やスキルを活かせるポジションをご紹介します。</p>
+                            <span class="env-card__arrow" aria-hidden="true">
+                                <img src="./images/icon/next.png" alt="">
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- card2 -->
+                    <div class="card reveal env-card mid-card2">
+                        <div class="env-card__body">
+                            <h3 class="env-card__title">採用実績</h3>
+                            <p class="env-card__desc">当社で活躍する先輩社員の経歴や入社のきっかけをご覧いただけます。</p>
+                            <span class="env-card__arrow" aria-hidden="true">
+                                <img src="./images/icon/next.png" alt="">
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- card3 -->
+                    <div class="card reveal env-card mid-card3">
+                        <div class="env-card__body">
+                            <h3 class="env-card__title">エントリー</h3>
+                            <p class="env-card__desc">ご応募はこちらから！<br />あなたの新しい挑戦をお待ちしています。</p>
+                            <span class="env-card__arrow" aria-hidden="true">
+                                <img src="./images/icon/next.png" alt="">
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="freshers" class="reveal section-bg">
-            <div class="section-inner">
-                <h2 class="sec-title">新卒採用</h2>
-                <p class="sec-lead">このセクションはダミーです。別ページにリンクする場合は a[href] を差し替えてください。</p>
-                <div class="cards">
-                    <div class="card reveal">募集要項・応募ボタン（ダミー）</div>
-                </div>
-            </div>
-        </section>
-
-        <section id="catalog" class="reveal section-bg has-bgvideo" aria-label="数字で見る">
+        <section id="freshers" class="reveal section-bg has-bgvideo" aria-label="新卒採用">
             <div class="sec-bg" aria-hidden="true">
-                <video class="sec-bg-video" autoplay muted loop playsinline preload="auto"
-                    poster="./images/bg-numbers.jpg">
+                <video class="sec-bg-video" autoplay muted loop playsinline preload="auto" poster="">
                     <source src="movie/bg-catalog.mp4" type="video/mp4" />
                 </video>
                 <div class="sec-bg-overlay"></div>
             </div>
+            <div class="section-inner">
+                <h2 class="sec-title">新卒採用</h2>
+                <p class="sec-lead">これからの成長と可能性を大切に、若い力を歓迎します。<br />共に未来を切り拓く仲間をお待ちしています。</p>
+                <div class="cards env-cards">
+                    <!-- card1 -->
+                    <div class="card reveal env-card new-card1">
+                        <div class="env-card__body">
+                            <h3 class="env-card__title">採用情報・募集要項</h3>
+                            <p class="env-card__desc">学生の皆さん向けに、仕事内容や求める人物像をわかりやすく掲載しています。<br />未来のキャリアを描く参考にしてください！</p>
+                            <span class="env-card__arrow" aria-hidden="true">
+                                <img src="./images/icon/next.png" alt="">
+                            </span>
+                        </div>
+                    </div>
 
+                    <!-- card2 -->
+                    <div class="card reveal env-card new-card2">
+                        <div class="env-card__body">
+                            <h3 class="env-card__title">採用実績</h3>
+                            <p class="env-card__desc">先輩社員の入社ストーリーや配属事例をご紹介。<br />入社後の成長イメージが湧きやすくなります。</p>
+                            <span class="env-card__arrow" aria-hidden="true">
+                                <img src="./images/icon/next.png" alt="">
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- card3 -->
+                    <div class="card reveal env-card new-card3">
+                        <div class="env-card__body">
+                            <h3 class="env-card__title">エントリー</h3>
+                            <p class="env-card__desc">ご応募はこちらから！<br />あなたの新しい挑戦をお待ちしています。</p>
+                            <span class="env-card__arrow" aria-hidden="true">
+                                <img src="./images/icon/next.png" alt="">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="catalog" class="reveal section-bg" aria-label="社員図鑑">
             <div class="section-inner">
                 <h2 class="sec-title">社員図鑑</h2>
                 <p class="sec-lead">多様なバックグラウンドのメンバーが活躍中。職種横断でキャリアのリアルを紹介します。</p>
-                <div class="cards">
-                    <div class="card reveal">若手からリーダーまでの一日密着コンテンツのカード（ダミー）</div>
-                    <div class="card reveal">職種別インタビューのカード（ダミー）</div>
+                <div class="cards env-cards">
+                    <!-- card1 -->
+                    <div class="card reveal env-card catalog-card1">
+                        <div class="env-card__body">
+                            <h3 class="env-card__title">2025年度新卒</h3>
+                            <p class="env-card__desc">フレッシュな視点とエネルギーを持つ新卒社員の紹介</p>
+                            <span class="env-card__arrow" aria-hidden="true">
+                                <img src="./images/icon/next.png" alt="">
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- card2 -->
+                    <div class="card reveal env-card catalog-card2">
+                        <div class="env-card__body">
+                            <h3 class="env-card__title">中途入社社員</h3>
+                            <p class="env-card__desc">多様な業界・職種から当社へ加わったメンバーの声</p>
+                            <span class="env-card__arrow" aria-hidden="true">
+                                <img src="./images/icon/next.png" alt="">
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- card3 -->
+                    <div class="card reveal env-card catalog-card3">
+                        <div class="env-card__body">
+                            <h3 class="env-card__title">役職者</h3>
+                            <p class="env-card__desc">課や部を率いるリーダーたちの経歴や想いをご紹介</p>
+                            <span class="env-card__arrow" aria-hidden="true">
+                                <img src="./images/icon/next.png" alt="">
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- card4 -->
+                    <div class="card reveal env-card catalog-card4">
+                        <div class="env-card__body">
+                            <h3 class="env-card__title">その他</h3>
+                            <p class="env-card__desc">個性豊かな社員たちの素顔やエピソードを紹介</p>
+                            <span class="env-card__arrow" aria-hidden="true">
+                                <img src="./images/icon/next.png" alt="">
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -234,7 +353,7 @@
         </nav>
 
         <a href="#top" class="foot-logo" aria-label="トップへ">
-            <img src="./images/header.png" alt="ConsalLink Recruit" />
+            <img src="./images/header.png" alt="ConsalLink Recruit" loading="lazy" />
         </a>
 
         <div class="foot-addresses" aria-label="拠点情報">

@@ -43,6 +43,97 @@ body.is-ready {
     font-display: swap
 }
 
+/* =========================
+   Splash（青背景・ロゴ・スピナー）
+========================= */
+#splash {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(180deg, #0b1e3a, #123d7a);
+    color: #fff;
+    z-index: 9998;
+    display: grid;
+    place-items: center;
+    opacity: 1;
+    /* 青背景はすぐ表示 */
+}
+
+#splash.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .4s ease;
+}
+
+#splash.fade-out {
+    opacity: 0;
+    transition: opacity .82s ease;
+}
+
+.splash-center {
+    text-align: center;
+    transform: translateY(-2vh);
+}
+
+.splash-logo {
+    width: min(320px, 60vw);
+    height: auto;
+    display: block;
+    margin-inline: auto;
+    opacity: 0;
+    transform: translateY(8px) scale(.98);
+    transition: opacity 3s ease, transform 3s ease;
+    /* ロゴ3秒フェードイン */
+    filter: drop-shadow(0 8px 26px rgba(0, 0, 0, .28));
+}
+
+.splash-logo.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* スタイリッシュなリングスピナー（ゆっくりフェードイン） */
+.splash-spinner {
+    width: 56px;
+    height: 56px;
+    margin: 18px auto 0;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, .2);
+    border-top-color: #fff;
+    animation: spin 1s linear infinite;
+    box-shadow: 0 0 14px rgba(255, 255, 255, .25), inset 0 1px 0 rgba(255, 255, 255, .45);
+    position: relative;
+    opacity: 0;
+    /* ロゴフェード途中で少し早めに出す */
+    transition: opacity 1.2s ease;
+}
+
+.splash-spinner.is-visible {
+    opacity: 1;
+}
+
+.splash-spinner::after {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    margin-left: -4px;
+    border-radius: 50%;
+    background: #fff;
+    filter: blur(.4px);
+    box-shadow: 0 0 10px rgba(255, 255, 255, .75);
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+/* =========================
+   Header
+========================= */
 #siteHeader {
     position: fixed;
     inset: 0 0 auto 0;
@@ -112,7 +203,7 @@ body.is-ready {
     background: radial-gradient(40% 40% at 50% 50%, rgba(30, 136, 255, .28), rgba(30, 136, 255, 0) 70%);
     opacity: 0;
     transform: scale(.7);
-    pointer-events: none;
+    pointer-events: none
 }
 
 .hamburger.is-open::after {
@@ -134,7 +225,7 @@ body.is-ready {
     border-radius: 2px;
     transition: transform .35s ease, top .35s ease, opacity .25s ease;
     box-shadow: 0 0 1px rgba(255, 255, 255, .6);
-    transform-origin: 11px 1px;
+    transform-origin: 11px 1px
 }
 
 .ham-lines span:nth-child(1) {
@@ -210,7 +301,7 @@ body.is-ready {
     opacity: 0;
     pointer-events: none;
     transition: opacity .35s ease, backdrop-filter .35s ease;
-    z-index: 40;
+    z-index: 40
 }
 
 .drawer {
@@ -228,6 +319,7 @@ body.is-ready {
     filter: blur(3px);
     transition: transform 520ms cubic-bezier(.22, 1, .36, 1), opacity 260ms ease, filter 420ms ease;
     will-change: transform;
+    outline: none;
 }
 
 .drawer::before {
@@ -237,7 +329,7 @@ body.is-ready {
     width: 60%;
     background: radial-gradient(600px 400px at -10% 20%, rgba(30, 136, 255, .18), transparent 60%);
     pointer-events: none;
-    filter: blur(6px);
+    filter: blur(6px)
 }
 
 .drawer-header {
@@ -273,15 +365,23 @@ body.is-ready {
     color: var(--text);
     font-weight: 700;
     background: linear-gradient(180deg, rgba(255, 255, 255, .9), rgba(255, 255, 255, .65));
-    border: 1px solid var(--border);
-    transition: transform .22s ease, box-shadow .22s ease, background .22s ease, border-color .22s ease;
+    box-shadow:
+        0 0 8px rgba(116, 180, 255, .45),
+        0 6px 18px rgba(30, 136, 255, .18),
+        inset 0 1px 0 rgba(255, 255, 255, .55);
+    transition: transform .22s ease, box-shadow .22s ease, background .22s ease, border-color .22s ease, filter .22s ease;
 }
 
-.drawer-link:hover {
-    transform: translateX(-3px) translateY(-1px);
-    background: linear-gradient(180deg, #fff, rgba(255, 255, 255, .8));
-    border-color: #c7dcff;
-    box-shadow: 0 6px 18px rgba(30, 136, 255, .15)
+/* ① 全メニュー共通：ホバーでズームアップ */
+.drawer-link:hover,
+.drawer-link:focus-visible {
+    transform: translateX(-3px) translateY(-1px) scale(1.02);
+    background: linear-gradient(180deg, #fff, rgba(255, 255, 255, .85));
+    border-color: rgba(30, 136, 255, 1);
+    box-shadow:
+        0 0 14px rgba(116, 180, 255, .6),
+        0 12px 28px rgba(30, 136, 255, .25),
+        inset 0 1px 0 rgba(255, 255, 255, .65);
 }
 
 .drawer-open .drawer {
@@ -318,10 +418,116 @@ body.is-ready {
     transition-delay: .30s
 }
 
+.drawer-open .drawer-list li:nth-child(5) {
+    transition-delay: .36s
+}
+
+.drawer-open .drawer-list li:nth-child(6) {
+    transition-delay: .42s
+}
+
 .no-scroll {
     overflow: hidden
 }
 
+[aria-hidden="true"] {
+    pointer-events: none
+}
+
+/* Drawer の FAQアイコンを CTA風に */
+.ham-cta {
+    position: relative;
+    overflow: hidden;
+    padding: 0
+}
+
+.ham-cta-zoom {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    transition: transform 320ms cubic-bezier(.22, 1, .36, 1)
+}
+
+.ham-cta-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: inherit;
+    transition: transform 360ms cubic-bezier(.22, 1, .36, 1), filter 360ms ease
+}
+
+/* FAQのみ高さを確保（画像が映える比率に） */
+.ham-cta--faq {
+    height: 120px
+}
+
+@media (max-width: 480px) {
+    .ham-cta--faq {
+        height: 96px
+    }
+}
+
+.ham-cta:hover .ham-cta-zoom,
+.ham-cta:focus-visible .ham-cta-zoom {
+    transform: none
+}
+
+.ham-cta:hover .ham-cta-img,
+.ham-cta:focus-visible .ham-cta-img {
+    transform: scale(1.04);
+    filter: brightness(1.03)
+}
+
+.drawer-icon {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 auto
+}
+
+.drawer-grid-two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.drawer-list li.drawer-grid-two {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+}
+
+.drawer-grid-two>a {
+    opacity: 0;
+    transform: translateX(12px) scale(.98);
+    filter: blur(3px);
+    transition: opacity .45s ease, transform .45s ease, filter .45s ease;
+}
+
+.drawer-open .drawer-grid-two>a {
+    opacity: 1;
+    transform: none;
+    filter: none;
+}
+
+.drawer-open .drawer-grid-two>a:nth-child(1) {
+    transition-delay: .12s;
+}
+
+.drawer-open .drawer-grid-two>a:nth-child(2) {
+    transition-delay: .18s;
+}
+
+.ham-cta--square {
+    aspect-ratio: 1 / 1;
+    padding: 0;
+}
+
+/* =========================
+   Hero
+========================= */
 .hero {
     position: relative;
     min-height: 100dvh;
@@ -376,11 +582,11 @@ body.is-ready {
     width: min(1100px, 100%);
     margin-inline: auto;
     align-self: start;
-    margin-top: clamp(120px, 30vh, 360px);
+    margin-top: clamp(120px, 30vh, 360px)
 }
 
 .handwrite {
-    color: #ffffff;
+    color: #fff;
     font-family: 'NagurigakiCrayon', 'Yomogi', 'Noto Sans JP', sans-serif;
     font-weight: 400;
     font-size: clamp(28px, 6.8vw, 56px);
@@ -390,9 +596,10 @@ body.is-ready {
     transform-origin: left bottom;
     -webkit-mask: linear-gradient(90deg, #000 0%, #000 0%) 0 0/0% 100% no-repeat;
     mask: linear-gradient(90deg, #000 0%, #000 0%) 0 0/0% 100% no-repeat;
-    animation: handwrite-reveal 3.6s ease forwards, handwrite-sway 2.4s ease 3.6s both;
+    animation: handwrite-reveal 3.6s ease 6s forwards,
+        handwrite-sway 2.4s ease 8.6s both;
     text-shadow: 0 1px 0 rgba(0, 0, 0, .06);
-    margin: 0;
+    margin: 0
 }
 
 .handwrite::after {
@@ -404,7 +611,7 @@ body.is-ready {
     width: 0%;
     background: linear-gradient(90deg, rgba(30, 136, 255, 0), rgba(30, 136, 255, .9), rgba(30, 136, 255, 0));
     animation: handwrite-underline 1.2s ease 2.6s forwards;
-    transform-origin: left center;
+    transform-origin: left center
 }
 
 .handwrite-sub {
@@ -416,9 +623,9 @@ body.is-ready {
     opacity: 0;
     transform: translateY(6px);
     animation: hw-sub-fade .9s ease forwards;
-    animation-delay: 3.8s;
+    animation-delay: 8.8s;
     -webkit-mask: none;
-    mask: none;
+    mask: none
 }
 
 .handwrite-sub::after {
@@ -502,7 +709,7 @@ body.is-ready {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease;
+    transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease
 }
 
 .btn:hover {
@@ -522,6 +729,11 @@ body.is-ready {
     box-shadow: 0 0 8px rgba(116, 180, 255, .4)
 }
 
+.btn--neon {
+    border-color: rgba(30, 136, 255, .95);
+    box-shadow: 0 0 10px rgba(116, 180, 255, .7), 0 0 24px rgba(30, 136, 255, .5), inset 0 1px 0 rgba(255, 255, 255, .6)
+}
+
 .cta-image {
     display: grid;
     grid-template-columns: repeat(2, minmax(140px, 1fr));
@@ -530,7 +742,7 @@ body.is-ready {
     align-items: stretch;
     max-width: min(720px, 92vw);
     margin: 12px auto 0;
-    padding: 16vh 0 0;
+    padding: 16vh 0 0
 }
 
 .cta-img-link {
@@ -545,7 +757,7 @@ body.is-ready {
     transform: none;
     filter: none;
     animation: none;
-    transition: opacity 240ms ease;
+    transition: opacity 240ms ease
 }
 
 .cta-img-link:focus-visible {
@@ -653,16 +865,33 @@ section {
     margin-bottom: 24px
 }
 
-#catalog .sec-lead,
-#numbers .sec-lead,
-#midcareer .sec-lead {
+/* 既定：数字で見るは白系、環境はデフォルト。 */
+#numbers .sec-title {
+    color: #ffffff
+}
+
+#numbers .sec-lead {
     color: #e4f0ff
 }
 
-#catalog .sec-title,
-#numbers .sec-title,
-#midcareer .sec-title {
+/* 新卒採用を数字で見ると同色に */
+#freshers .sec-title {
     color: #ffffff
+}
+
+#freshers .sec-lead {
+    color: #e4f0ff
+}
+
+/* 中途採用・社員図鑑を環境と同色に */
+#midcareer .sec-title,
+#catalog .sec-title {
+    color: var(--text)
+}
+
+#midcareer .sec-lead,
+#catalog .sec-lead {
+    color: var(--subtext)
 }
 
 .cards {
@@ -683,14 +912,16 @@ section {
 
 #catalog.section-bg,
 #numbers.section-bg,
-#midcareer.section-bg {
+#midcareer.section-bg,
+#freshers.section-bg {
     background: none;
     overflow: hidden
 }
 
 #catalog .sec-bg,
 #numbers .sec-bg,
-#midcareer .sec-bg {
+#midcareer .sec-bg,
+#freshers .sec-bg {
     position: absolute;
     inset: 0;
     z-index: 0
@@ -698,7 +929,8 @@ section {
 
 #catalog .sec-bg-video,
 #numbers .sec-bg-video,
-#midcareer .sec-bg-video {
+#midcareer .sec-bg-video,
+#freshers .sec-bg-video {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -710,22 +942,25 @@ section {
 
 #catalog .sec-bg-overlay,
 #numbers .sec-bg-overlay,
-#midcareer .sec-bg-overlay {
+#midcareer .sec-bg-overlay,
+#freshers .sec-bg-overlay {
     position: absolute;
     inset: 0;
     background: transparent
 }
 
 #environment.section-bg {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url("./images/bg-environment.jpg") center/cover no-repeat
-}
-
-#faq.section-bg {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url("./images/bg-faq.jpg") center/cover no-repeat
+    background: none
 }
 
 #freshers.section-bg {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url("./images/bg-freshers.jpg") center/cover no-repeat
+    background: none
+}
+
+/* freshers は動画 */
+
+#faq.section-bg {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url("./images/bg-faq.jpg") center/cover no-repeat
 }
 
 .reveal {
@@ -745,7 +980,7 @@ footer {
     border-top: 1px solid rgba(255, 255, 255, .25);
     background: linear-gradient(180deg, var(--primary-700), var(--primary-600));
     text-align: center;
-    color: #ffffff;
+    color: #fff
 }
 
 .foot-links {
@@ -757,7 +992,7 @@ footer {
 }
 
 .foot-links a {
-    color: #ffffff;
+    color: #fff;
     text-decoration: none;
     font-size: 14px;
     opacity: .95;
@@ -780,13 +1015,13 @@ footer {
     background: linear-gradient(90deg, var(--primary-300), #ffffff);
     border-radius: 2px;
     box-shadow: 0 0 8px rgba(255, 255, 255, .45);
-    transition: width .28s cubic-bezier(.22, 1, .36, 1);
+    transition: width .28s cubic-bezier(.22, 1, .36, 1)
 }
 
 .foot-links a:hover,
 .foot-links a:focus-visible {
     opacity: 1;
-    color: #ffffff;
+    color: #fff;
     transform: translateY(-1px);
     text-shadow: 0 0 8px rgba(255, 255, 255, .35)
 }
@@ -829,7 +1064,7 @@ footer {
     background: rgba(255, 255, 255, .08);
     border-radius: 8px;
     padding: 0;
-    color: #ffffff;
+    color: #fff;
     box-shadow: 0 8px 24px rgba(0, 0, 0, .08)
 }
 
@@ -859,7 +1094,7 @@ footer {
     background-position: center;
     filter: brightness(.82) saturate(.9) contrast(1.05);
     -webkit-mask-image: radial-gradient(140% 140% at 50% 50%, #000 62%, rgba(0, 0, 0, 0) 100%);
-    mask-image: radial-gradient(140% 140% at 50% 50%, #000 62%, rgba(0, 0, 0, 0) 100%);
+    mask-image: radial-gradient(140% 140% at 50% 50%, #000 62%, rgba(0, 0, 0, 0) 100%)
 }
 
 .foot-addresses .addr-inner::after {
@@ -870,7 +1105,7 @@ footer {
     border-radius: 16px;
     background: radial-gradient(120% 140% at 50% 10%, rgba(0, 0, 0, .40), rgba(0, 0, 0, 0) 70%), linear-gradient(180deg, rgba(0, 12, 28, .35), rgba(0, 12, 28, .45));
     box-shadow: inset 0 0 120px rgba(0, 0, 0, .38), inset 0 0 220px rgba(0, 0, 0, .28);
-    filter: blur(.4px);
+    filter: blur(.4px)
 }
 
 .addr-body {
@@ -900,7 +1135,7 @@ footer {
     width: 72px;
     border-radius: 999px;
     background: linear-gradient(90deg, #74b4ff, #1e88ff);
-    box-shadow: 0 2px 10px rgba(30, 136, 255, .35);
+    box-shadow: 0 2px 10px rgba(30, 136, 255, .35)
 }
 
 .addr-text {
@@ -937,12 +1172,12 @@ footer {
     border-radius: 999px;
     text-decoration: none;
     color: #0b294a;
-    background: #ffffff;
+    background: #fff;
     border: 1px solid rgba(255, 255, 255, .6);
     box-shadow: 0 4px 14px rgba(0, 0, 0, .12);
     font-weight: 700;
     font-size: 14px;
-    transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+    transition: transform .15s ease, box-shadow .2s ease, background .2s ease
 }
 
 .addr-map a:hover {
@@ -951,6 +1186,9 @@ footer {
     background: #eaf3ff
 }
 
+/* =========================
+   Environment cards
+========================= */
 #environment .env-card {
     position: relative;
     overflow: hidden;
@@ -958,7 +1196,7 @@ footer {
     background: transparent;
     border: 1px solid rgba(255, 255, 255, .25);
     border-radius: 20px;
-    min-height: 200px;
+    min-height: 200px
 }
 
 #environment .env-card::before {
@@ -971,7 +1209,7 @@ footer {
     transition: transform 360ms cubic-bezier(.22, 1, .36, 1), filter 360ms ease;
     filter: brightness(.88) saturate(.98) contrast(1.03);
     -webkit-mask-image: radial-gradient(140% 140% at 50% 50%, #000 66%, rgba(0, 0, 0, 0) 100%);
-    mask-image: radial-gradient(140% 140% at 50% 50%, #000 66%, rgba(0, 0, 0, 0) 100%);
+    mask-image: radial-gradient(140% 140% at 50% 50%, #000 66%, rgba(0, 0, 0, 0) 100%)
 }
 
 #environment .env-card1::before {
@@ -989,7 +1227,7 @@ footer {
     z-index: 0;
     border-radius: 22px;
     background: radial-gradient(120% 140% at 50% 10%, rgba(0, 0, 0, .28), rgba(0, 0, 0, 0) 70%), linear-gradient(180deg, rgba(0, 12, 28, .20), rgba(0, 12, 28, .32));
-    box-shadow: inset 0 0 110px rgba(0, 0, 0, .26), inset 0 0 180px rgba(0, 0, 0, .18);
+    box-shadow: inset 0 0 110px rgba(0, 0, 0, .26), inset 0 0 180px rgba(0, 0, 0, .18)
 }
 
 #environment .env-card:hover::before,
@@ -1028,7 +1266,7 @@ footer {
     width: 222px;
     border-radius: 999px;
     background: linear-gradient(90deg, #74b4ff, #1e88ff);
-    box-shadow: 0 2px 10px rgba(30, 136, 255, .35);
+    box-shadow: 0 2px 10px rgba(30, 136, 255, .35)
 }
 
 #environment .env-card__desc {
@@ -1060,6 +1298,9 @@ footer {
     opacity: 1
 }
 
+/* =========================
+   Numbers
+========================= */
 .num-cards {
     display: grid;
     gap: 16px;
@@ -1076,7 +1317,7 @@ footer {
     font-weight: 800;
     font-size: clamp(16px, 2.1vw, 20px);
     padding-bottom: 6px;
-    color: var(--primary-700) !important;
+    color: var(--primary-700) !important
 }
 
 #numbers .num-title::after {
@@ -1088,7 +1329,7 @@ footer {
     width: 115px;
     border-radius: 999px;
     background: linear-gradient(90deg, #74b4ff, #1e88ff);
-    box-shadow: 0 2px 10px rgba(30, 136, 255, .35);
+    box-shadow: 0 2px 10px rgba(30, 136, 255, .35)
 }
 
 #numbers .num-card {
@@ -1106,7 +1347,7 @@ footer {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    text-shadow: 0 2px 10px rgba(30, 136, 255, .18);
+    text-shadow: 0 2px 10px rgba(30, 136, 255, .18)
 }
 
 @property --p {
@@ -1134,7 +1375,7 @@ footer {
     -webkit-mask: radial-gradient(circle, #0000 calc(var(--hole) - 1%), #000 var(--hole));
     mask: radial-gradient(circle, #0000 calc(var(--hole) - 1%), #000 var(--hole));
     box-shadow: 0 6px 18px rgba(30, 136, 255, .12), inset 0 4px 10px rgba(255, 255, 255, .12);
-    transform: scale(.96);
+    transform: scale(.96)
 }
 
 .num-pie .pie::before {
@@ -1142,11 +1383,11 @@ footer {
     position: absolute;
     inset: -2px;
     border-radius: 50%;
-    background: conic-gradient(transparent 0 var(--p), rgba(255, 255, 255, .85) var(--p) calc(var(--p) + 1.2deg), transparent calc(var(--p) + 1.2deg) 360deg);
+    background: conic-gradient(transparent 0 var(--p), rgba(255, 255, 255, .85) var(--p) calc(var(--p)+1.2deg), transparent calc(var(--p)+1.2deg) 360deg);
     -webkit-mask: radial-gradient(circle, #0000 calc(var(--hole) - 2%), #000 calc(var(--hole) - 1%)), radial-gradient(circle, #000 100%, #000 100%);
     mask: radial-gradient(circle, #0000 calc(var(--hole) - 2%), #000 calc(var(--hole) - 1%)), radial-gradient(circle, #000 100%, #000 100%);
     filter: blur(.8px);
-    pointer-events: none;
+    pointer-events: none
 }
 
 .num-pie .pie::after {
@@ -1159,7 +1400,7 @@ footer {
     font-size: 28px;
     letter-spacing: .02em;
     color: var(--primary-700);
-    text-shadow: 0 2px 10px rgba(30, 136, 255, .18), 0 0 18px rgba(30, 136, 255, .10);
+    text-shadow: 0 2px 10px rgba(30, 136, 255, .18), 0 0 18px rgba(30, 136, 255, .10)
 }
 
 .num-pie .pie-wrap::after {
@@ -1172,7 +1413,7 @@ footer {
     -webkit-mask: radial-gradient(circle, #0000 66%, #000 67%);
     mask: radial-gradient(circle, #0000 66%, #000 67%);
     filter: blur(.6px);
-    pointer-events: none;
+    pointer-events: none
 }
 
 .reveal.is-visible.num-card.num-pie .pie {
@@ -1233,11 +1474,10 @@ footer {
 
 #numbers .num-stat .num-hero {
     width: 85%;
-    max-width: none;
     height: auto;
     display: block;
     filter: drop-shadow(0 4px 14px rgba(30, 136, 255, .18));
-    transition: transform 280ms cubic-bezier(.22, 1, .36, 1), filter 280ms ease;
+    transition: transform 280ms cubic-bezier(.22, 1, .36, 1), filter 280ms ease
 }
 
 #numbers .num-stat:hover .num-hero,
@@ -1289,6 +1529,7 @@ footer {
     }
 }
 
+/* もっと見る */
 #numbers .num-more {
     position: relative;
     overflow: hidden;
@@ -1328,12 +1569,9 @@ footer {
     display: none
 }
 
-#numbers .num-more:hover::before,
-#numbers .num-more:focus-within::before {
-    transform: scale(1.04);
-    transition: transform 320ms cubic-bezier(.22, 1, .36, 1)
-}
-
+/* =========================
+   Responsive
+========================= */
 @media (min-width:720px) {
     .card {
         grid-column: span 6
@@ -1435,9 +1673,10 @@ footer {
         text-align: center
     }
 
+    /* SP時も「もっと見る」を透過にせず背景色あり */
     #numbers .num-more {
         min-height: clamp(220px, 46vw, 300px) !important;
-        background: none;
+        background: var(--card-bg);
         text-align: center;
         align-items: center
     }
@@ -1500,9 +1739,455 @@ footer {
         transform: none;
         filter: none
     }
+
+    .sec-bg-video,
+    #bgVideo {
+        animation: none
+    }
+}
+
+/* number-section の余白微調整 */
+.number-section {
+    padding: 20px 20px !important
+}
+
+/* =========================
+   ホワイトアウト用
+========================= */
+#whiteout {
+    position: fixed;
+    inset: 0;
+    background: #fff;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 2s ease;
+    /* 持続時間はここで調整（例：3s に変更可） */
+}
+
+#whiteout.show {
+    opacity: 1;
+}
+
+#whiteout.hidden {
+    opacity: 0;
+}
+
+/* ===== Midcareer でも env-card スタイルを利用 ===== */
+#midcareer .env-card {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 20px;
+    min-height: 200px;
+}
+
+#midcareer .env-card::before {
+    content: "";
+    position: absolute;
+    inset: -14px;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 360ms cubic-bezier(.22, 1, .36, 1), filter 360ms ease;
+    filter: brightness(.88) saturate(.98) contrast(1.03);
+    -webkit-mask-image: radial-gradient(140% 140% at 50% 50%, #000 66%, rgba(0, 0, 0, 0) 100%);
+    mask-image: radial-gradient(140% 140% at 50% 50%, #000 66%, rgba(0, 0, 0, 0) 100%);
+}
+
+#midcareer .env-card::after {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    z-index: 0;
+    border-radius: 22px;
+    background: radial-gradient(120% 140% at 50% 10%, rgba(0, 0, 0, .28), rgba(0, 0, 0, 0) 70%),
+        linear-gradient(180deg, rgba(0, 12, 28, .20), rgba(0, 12, 28, .32));
+    box-shadow: inset 0 0 110px rgba(0, 0, 0, .26), inset 0 0 180px rgba(0, 0, 0, .18);
+}
+
+#midcareer .env-card:hover::before,
+#midcareer .env-card:focus-within::before {
+    transform: scale(1.04);
+    filter: brightness(1.03) saturate(.98);
+}
+
+#midcareer .env-card__body {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    padding: 16px 16px 44px;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .40);
+}
+
+#midcareer .env-card__title {
+    margin: 0;
+    font-weight: 800;
+    color: #fff;
+    font-size: clamp(16px, 2.1vw, 20px);
+    position: relative;
+    padding-bottom: 6px;
+}
+
+#midcareer .env-card__title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 222px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #74b4ff, #1e88ff);
+    box-shadow: 0 2px 10px rgba(30, 136, 255, .35);
+}
+
+#midcareer .env-card__desc {
+    margin: 8px 0 0;
+    color: #f5f9ff;
+    line-height: 1.7;
+    font-size: clamp(14px, 1.9vw, 15px);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .35);
+}
+
+#midcareer .env-card__arrow {
+    position: absolute;
+    right: 12px;
+    bottom: 10px;
+    opacity: .95;
+    transition: transform 280ms cubic-bezier(.22, 1, .36, 1), opacity .2s ease;
+}
+
+#midcareer .env-card__arrow img {
+    display: block;
+    width: 28px;
+    height: 28px;
+    pointer-events: none;
+}
+
+#midcareer .env-card:hover .env-card__arrow,
+#midcareer .env-card:focus-within .env-card__arrow {
+    transform: translateX(2px);
+    opacity: 1;
+}
+
+/* 背景画像（指定の3枚） */
+#midcareer .mid-card1::before {
+    background-image: url("./images/middle-entry/card1.png");
+}
+
+#midcareer .mid-card2::before {
+    background-image: url("./images/middle-entry/card2.png");
+}
+
+#midcareer .mid-card3::before {
+    background-image: url("./images/middle-entry/card3.png");
+}
+
+/* 中途採用カード：レイアウトのみ上書き（PC3列／SP1列） */
+#midcareer .env-cards {
+    /* 既存 .cards の 12列グリッドを打ち消して、単純なカラム制御に */
+    display: grid;
+    grid-template-columns: 1fr;
+    /* SP：1列 */
+    gap: 16px;
+}
+
+#midcareer .env-cards .card {
+    grid-column: auto;
+    /* 12列スパン指定を解除 */
+}
+
+/* PC幅で3列に */
+@media (min-width: 960px) {
+    #midcareer .env-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 中途採用カードのサイズ微調整（イメージ踏襲しつつ高さを統一） */
+#midcareer .env-card {
+    min-height: clamp(200px, 24vw, 260px);
+}
+
+/* 新卒採用カード：レイアウト（PC3列／SP1列） */
+#freshers .env-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* SP：1列 */
+    gap: 16px;
+}
+
+#freshers .env-cards .card {
+    grid-column: auto;
+}
+
+/* PCで3列に */
+@media (min-width: 960px) {
+    #freshers .env-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 新卒採用カードの見た目（環境カードの踏襲。セクションの配色は触らない） */
+#freshers .env-card {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 20px;
+    min-height: clamp(200px, 24vw, 260px);
+}
+
+#freshers .env-card::before {
+    content: "";
+    position: absolute;
+    inset: -14px;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 360ms cubic-bezier(.22, 1, .36, 1), filter 360ms ease;
+    filter: brightness(.88) saturate(.98) contrast(1.03);
+    -webkit-mask-image: radial-gradient(140% 140% at 50% 50%, #000 66%, rgba(0, 0, 0, 0) 100%);
+    mask-image: radial-gradient(140% 140% at 50% 50%, #000 66%, rgba(0, 0, 0, 0) 100%);
+}
+
+#freshers .env-card::after {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    z-index: 0;
+    border-radius: 22px;
+    background:
+        radial-gradient(120% 140% at 50% 10%, rgba(0, 0, 0, .28), rgba(0, 0, 0, 0) 70%),
+        linear-gradient(180deg, rgba(0, 12, 28, .20), rgba(0, 12, 28, .32));
+    box-shadow: inset 0 0 110px rgba(0, 0, 0, .26), inset 0 0 180px rgba(0, 0, 0, .18);
+}
+
+#freshers .env-card:hover::before,
+#freshers .env-card:focus-within::before {
+    transform: scale(1.04);
+    filter: brightness(1.03) saturate(.98);
+}
+
+#freshers .env-card__body {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    padding: 16px 16px 44px;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .40);
+}
+
+#freshers .env-card__title {
+    margin: 0;
+    font-weight: 800;
+    color: #fff;
+    font-size: clamp(16px, 2.1vw, 20px);
+    position: relative;
+    padding-bottom: 6px;
+}
+
+#freshers .env-card__title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 222px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #74b4ff, #1e88ff);
+    box-shadow: 0 2px 10px rgba(30, 136, 255, .35);
+}
+
+#freshers .env-card__desc {
+    margin: 8px 0 0;
+    color: #f5f9ff;
+    line-height: 1.7;
+    font-size: clamp(14px, 1.9vw, 15px);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .35);
+}
+
+#freshers .env-card__arrow {
+    position: absolute;
+    right: 12px;
+    bottom: 10px;
+    opacity: .95;
+    transition: transform 280ms cubic-bezier(.22, 1, .36, 1), opacity .2s ease;
+}
+
+#freshers .env-card__arrow img {
+    display: block;
+    width: 28px;
+    height: 28px;
+    pointer-events: none;
+}
+
+#freshers .env-card:hover .env-card__arrow,
+#freshers .env-card:focus-within .env-card__arrow {
+    transform: translateX(2px);
+    opacity: 1;
+}
+
+/* 背景画像（指定の3枚） */
+#freshers .new-card1::before {
+    background-image: url("./images/new-entry/card1.png");
+}
+
+#freshers .new-card2::before {
+    background-image: url("./images/new-entry/card2.png");
+}
+
+#freshers .new-card3::before {
+    background-image: url("./images/new-entry/card3.png");
 }
 
 
-.number-section {
-    padding: 20px 20px !important;
+/* 社員図鑑カード：レイアウト（SP 2列、PC 4列） */
+#catalog .env-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* スマホ：2列2行 */
+    gap: 16px;
+}
+
+#catalog .env-cards .card {
+    grid-column: auto;
+}
+
+/* PCで4列に（数字で見ると同じブレークポイント） */
+@media (min-width: 960px) {
+    #catalog .env-cards {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* 社員図鑑カードの見た目（環境カードの踏襲。セクション配色は触らない） */
+#catalog .env-card {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 20px;
+    min-height: clamp(180px, 18vw, 220px);
+}
+
+#catalog .env-card::before {
+    content: "";
+    position: absolute;
+    inset: -14px;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 360ms cubic-bezier(.22, 1, .36, 1), filter 360ms ease;
+    filter: brightness(.88) saturate(.98) contrast(1.03);
+    -webkit-mask-image: radial-gradient(140% 140% at 50% 50%, #000 66%, rgba(0, 0, 0, 0) 100%);
+    mask-image: radial-gradient(140% 140% at 50% 50%, #000 66%, rgba(0, 0, 0, 0) 100%);
+}
+
+#catalog .env-card::after {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    z-index: 0;
+    border-radius: 22px;
+    background:
+        radial-gradient(120% 140% at 50% 10%, rgba(0, 0, 0, .28), rgba(0, 0, 0, 0) 70%),
+        linear-gradient(180deg, rgba(0, 12, 28, .20), rgba(0, 12, 28, .32));
+    box-shadow: inset 0 0 110px rgba(0, 0, 0, .26), inset 0 0 180px rgba(0, 0, 0, .18);
+}
+
+#catalog .env-card:hover::before,
+#catalog .env-card:focus-within::before {
+    transform: scale(1.04);
+    filter: brightness(1.03) saturate(.98);
+}
+
+#catalog .env-card__body {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    padding: 16px 16px 44px;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .40);
+}
+
+#catalog .env-card__title {
+    margin: 0;
+    font-weight: 800;
+    color: #fff;
+    font-size: clamp(16px, 2.1vw, 20px);
+    position: relative;
+    padding-bottom: 6px;
+}
+
+#catalog .env-card__title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 222px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #74b4ff, #1e88ff);
+    box-shadow: 0 2px 10px rgba(30, 136, 255, .35);
+}
+
+#catalog .env-card__desc {
+    margin: 8px 0 0;
+    color: #f5f9ff;
+    line-height: 1.7;
+    font-size: clamp(14px, 1.9vw, 15px);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .35);
+}
+
+#catalog .env-card__arrow {
+    position: absolute;
+    right: 12px;
+    bottom: 10px;
+    opacity: .95;
+    transition: transform 280ms cubic-bezier(.22, 1, .36, 1), opacity .2s ease;
+}
+
+#catalog .env-card__arrow img {
+    display: block;
+    width: 28px;
+    height: 28px;
+    pointer-events: none;
+}
+
+#catalog .env-card:hover .env-card__arrow,
+#catalog .env-card:focus-within .env-card__arrow {
+    transform: translateX(2px);
+    opacity: 1;
+}
+
+/* 背景画像（指定の4枚） */
+#catalog .catalog-card1::before {
+    background-image: url("./images/members/card1.png");
+}
+
+#catalog .catalog-card2::before {
+    background-image: url("./images/members/card2.png");
+}
+
+#catalog .catalog-card3::before {
+    background-image: url("./images/members/card3.png");
+}
+
+#catalog .catalog-card4::before {
+    background-image: url("./images/members/card4.png");
 }
