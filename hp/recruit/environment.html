@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ConsalLink Recruit Page</title>
+    <meta name="description" content="ConsalLink Recruit Page">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- OGP / Twitter -->
+    <meta property="og:title" content="ConsalLink Recruit Page">
+    <meta property="og:description" content="ConsalLink Recruit Page">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://example.com/ogp.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="./images/icon/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./images/icon/favicon.ico" type="image/x-icon">
+</head>
+
+<body id="environment">
+    <header id="siteHeader">
+        <a class="brand-logo" href="index.html" aria-label="トップへ">
+            <img src="./images/header.png" alt="ConsalLink Recruit" loading="eager" />
+        </a>
+        <nav>
+            <button class="hamburger" id="hamBtn" aria-label="メニューを開く" aria-controls="drawer" aria-expanded="false">
+                <span class="ham-lines" aria-hidden="true">
+                    <span></span><span></span><span></span>
+                </span>
+            </button>
+        </nav>
+    </header>
+
+    <div class="drawer-backdrop" id="backdrop" tabindex="-1" aria-hidden="true"></div>
+    <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+        <div class="drawer-header">
+            <strong id="drawerTitle">メニュー</strong>
+        </div>
+        <ul class="drawer-list">
+            <li><a class="drawer-link" href="#environment" data-close>働く環境</a></li>
+            <li><a class="drawer-link" href="#numbers" data-close>数字で見る</a></li>
+            <li><a class="drawer-link" href="#midcareer" data-close>中途採用</a></li>
+            <li><a class="drawer-link" href="#freshers" data-close>新卒採用</a></li>
+            <li><a class="drawer-link" href="#catalog" data-close>社員図鑑</a></li>
+            <li>
+                <a class="drawer-link ham-cta ham-cta--faq" href="#faq" data-close aria-label="よくある質問">
+                    <span class="ham-cta-zoom">
+                        <img class="ham-cta-img" src="./images/humberger/question.png" alt="">
+                    </span>
+                </a>
+            </li>
+            <li class="drawer-grid-two">
+                <a class="drawer-link ham-cta ham-cta--square" href="#midcareer" data-close aria-label="中途採用エントリー">
+                    <span class="ham-cta-zoom">
+                        <img class="ham-cta-img" src="./images/humberger/middle-entry-thum.png" alt="">
+                    </span>
+                </a>
+
+                <a class="drawer-link ham-cta ham-cta--square" href="#freshers" data-close aria-label="新卒採用エントリー">
+                    <span class="ham-cta-zoom">
+                        <img class="ham-cta-img" src="./images/humberger/new-entry-thum.png" alt="">
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <main id="main">
+        <!-- 福利厚生 -->
+        <section id="welfare" class="reveal section-bg" aria-label="福利厚生">
+            <div class="section-inner">
+                <h2 class="sec-title">働く環境</h2>
+                <h3 class="sec-title-small">福利厚生</h3>
+                <p class="sec-lead">コンサルリンクでは、社員の意見を取り入れ、働きやすい環境を整えています。
+                </p>
+
+                <div class="cards wel-cards">
+                    <div class="card reveal wel-card wel-stat">
+                        <h3 class="wel-title">完全週休2日制</h3>
+                        <div class="wel-visual">
+                            <img class="wel-hero" src="./images/environment/holiday.png" alt="" loading="lazy">
+                        </div>
+                        <p class="wel-detail">土日祝は休みです。</br>カレンダー通りのため、休日の予定が立てやすいです。</p>
+                    </div>
+
+                    <div class="card reveal wel-card wel-stat">
+                        <h3 class="wel-title">年間休日125日以上</h3>
+                        <div class="wel-visual">
+                            <img class="wel-hero" src="./images/environment/vacation.png" alt="" loading="lazy">
+                        </div>
+                        <p class="wel-detail">年末年始休暇は7日間、夏季休暇は3日間あります。</br>有給休暇は1時間単位で取得できます。</p>
+                    </div>
+
+                    <div class="card reveal wel-card wel-stat">
+                        <h3 class="wel-title">記念日休暇</h3>
+                        <div class="wel-visual">
+                            <img class="wel-hero" src="./images/environment/anniversary.png" alt="" loading="lazy">
+                        </div>
+                        <p class="wel-detail">年に一度、記念日を指定して休暇を取得できます。</br>例）アニメキャラの生誕祭、自主的勤労感謝の日、猫の日</p>
+                    </div>
+
+                    <div class="card reveal wel-card wel-stat">
+                        <h3 class="wel-title">生理休暇</h3>
+                        <div class="wel-visual">
+                            <img class="wel-hero" src="./images/environment/menstruation.png" alt="" loading="lazy">
+                        </div>
+                        <p class="wel-detail">月に一度、有給扱いで1日休暇を取得できます。</br>社員の声から生まれた制度です。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 社内イベント -->
+        <section id="event" class="reveal section-bg" aria-label="社内イベント">
+            <div class="section-inner">
+                <h3 class="sec-title-small">社内イベント</h3>
+                <p class="sec-lead">年に一度、社員旅行があります。</br>任意参加で、ほとんど自由行動です。
+                </p>
+
+                <div class="insta-wrap">
+                    <blockquote class="instagram-media"
+                        data-instgrm-permalink="https://www.instagram.com/reel/DASpUhyBx8X/?utm_source=ig_embed&amp;utm_campaign=loading/"
+                        data-instgrm-version="14"
+                        style="background:#fff; border:0; margin:0 auto; max-width:540px; width:100%;">
+                    </blockquote>
+                </div>
+                <script async src="https://www.instagram.com/embed.js"></script>
+            </div>
+        </section>
+
+        <!-- 評価制度 -->
+        <section id="evaluation" class="reveal section-bg has-bgvideo" aria-label="評価制度">
+            <div class="sec-bg" aria-hidden="true">
+                <video class="sec-bg-video" autoplay muted loop playsinline preload="auto" poster="">
+                    <source src="movie/bg-evaluation.mp4" type="video/mp4" />
+                </video>
+                <div class="sec-bg-overlay"></div>
+            </div>
+            <div class="section-inner">
+                <h3 class="sec-title-small">評価制度</h3>
+
+                <div class="card reveal env-card new-card1">
+                    <div class="env-card__body">
+                        <h3 class="env-card__title">自己プレゼン</h3>
+                        <p class="env-card__desc">
+                            年に一度、自己プレゼンというものがあります。<br />役員に対し、社員が自由形式でプレゼンを行い、考課査定をする評価制度を導入しています。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 教育制度 -->
+        <section id="education" class="reveal section-bg" aria-label="教育制度">
+            <div class="section-inner">
+                <h3 class="sec-title-small">教育制度</h3>
+
+                <div class="card reveal env-card">
+                    <div class="env-card__body">
+                        <h3 class="env-card__title">資格取得褒賞制度</h3>
+                        <p class="env-card__desc">対象資格取得時に、報奨金を支給しています。</br>また、一部の資格は受験料を会社が負担します。</p>
+
+                        <div class="qualification-list">
+                            <div class="item">AWS Certified Solutions Architect - Associate：30,000円（受験料22,000円会社負担）
+                            </div>
+                            <div class="item">AWS Certified Solutions Architect - Professional：150,000円（受験料45,000円会社負担）
+                            </div>
+                            <div class="item">AWS Certified Security - Specialty：150,000円（受験料44,000円会社負担）</div>
+                            <div class="item">Microsoft Certified: Azure Administrator Associate：30,000円（受験料21,000円会社負担）
+                            </div>
+                            <div class="item">Microsoft Certified: Azure Solutions Architect
+                                Expert：150,000円（受験料21,000円会社負担）</div>
+                        </div>
+
+                        <a class="pdf-link"
+                            href="https://consallink-web-assets.s3.ap-northeast-1.amazonaws.com/documents/recruit/qualification-list.pdf"
+                            target="_blank" rel="noopener noreferrer" aria-label="対象資格一覧.pdf（新しいタブで開く）">
+                            <span>対象資格一覧.pdf</span>
+                            <!-- 外部リンクアイコン -->
+                            <svg class="ext" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"></path>
+                                <path d="M5 5h7v2H7v10h10v-5h2v7H5V5z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="reveal">
+        <nav class="foot-links" aria-label="フッターナビ">
+            <a href="#catalog">社員図鑑</a>
+            <a href="#environment">働く環境</a>
+            <a href="#numbers">数字で見る</a>
+            <a href="#faq">よくある質問</a>
+            <a href="#midcareer">中途採用</a>
+            <a href="#freshers">新卒採用</a>
+        </nav>
+
+        <a href="index.html" class="foot-logo" aria-label="トップへ">
+            <img src="./images/header.png" alt="ConsalLink Recruit" loading="lazy" />
+        </a>
+
+        <div class="foot-addresses" aria-label="拠点情報">
+            <section class="addr-card">
+                <div class="addr-inner">
+                    <div class="addr-body">
+                        <h3 class="addr-title">大阪本社</h3>
+                        <address class="addr-text">
+                            〒530-0015<br>
+                            大阪府大阪市北区中崎西2丁目4-12 梅田センタービル 14F
+                        </address>
+                        <div class="addr-access">
+                            <strong>アクセス</strong>
+                            <ul>
+                                <li>地下鉄谷町線 中崎町駅から徒歩5分</li>
+                                <li>阪急線 大阪梅田駅から徒歩5分</li>
+                            </ul>
+                        </div>
+                        <p class="addr-map">
+                            <a href="https://maps.app.goo.gl/izMmRtGozMFzuBmAA" target="_blank" rel="noopener">Google
+                                Map</a>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="addr-card">
+                <div class="addr-inner">
+                    <div class="addr-body">
+                        <h3 class="addr-title">東京支社</h3>
+                        <address class="addr-text">
+                            〒113-0033<br>
+                            東京都文京区本郷2丁目26番9号 NOVEL WORK Hongo 2F
+                        </address>
+                        <div class="addr-access">
+                            <strong>アクセス</strong>
+                            <ul>
+                                <li>地下鉄丸ノ内線 本郷三丁目駅から徒歩3分</li>
+                                <li>地下鉄大江戸線 本郷三丁目駅から徒歩4分</li>
+                            </ul>
+                        </div>
+                        <p class="addr-map">
+                            <a href="https://maps.app.goo.gl/srVxhXYtBvL5eiG17" target="_blank" rel="noopener">Google
+                                Map</a>
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div>© <span id="y"></span> ConsalLink Inc.</div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>

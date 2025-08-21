@@ -19,7 +19,9 @@ const splashLogo = $('.splash-logo');
 const splashSpinner = $('.splash-spinner');
 const whiteout = document.createElement('div');
 whiteout.id = 'whiteout';
-document.body.appendChild(whiteout);
+if (document.body.id === "top") {
+    document.body.appendChild(whiteout);
+}
 
 const LOGO_FADE_MS = 3000;
 const SPINNER_DELAY_MS = 1500;

@@ -860,6 +860,24 @@ section {
     font-weight: 800
 }
 
+.sec-title-small {
+    display: flex;
+    align-items: center;
+    color: var(--text);
+    font-size: clamp(18px, 2.4vw, 22px);
+    margin: 0 0 10px;
+    font-weight: 800
+}
+
+.sec-title-small::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+    background: url("./images/environment/bullet.png") no-repeat center/contain
+}
+
 .sec-lead {
     color: var(--subtext);
     margin-bottom: 24px
@@ -874,12 +892,15 @@ section {
     color: #e4f0ff
 }
 
-/* 新卒採用を数字で見ると同色に */
-#freshers .sec-title {
+/* 新卒採用と働く環境の評価制度を数字で見ると同色に */
+/* 働く環境の評価制度を数字で見ると同色に */
+#freshers .sec-title,
+#evaluation .sec-title-small {
     color: #ffffff
 }
 
-#freshers .sec-lead {
+#freshers .sec-lead,
+#evaluation .sec-title-small {
     color: #e4f0ff
 }
 
@@ -913,7 +934,8 @@ section {
 #catalog.section-bg,
 #numbers.section-bg,
 #midcareer.section-bg,
-#freshers.section-bg {
+#freshers.section-bg,
+#evaluation.section-bg {
     background: none;
     overflow: hidden
 }
@@ -921,7 +943,8 @@ section {
 #catalog .sec-bg,
 #numbers .sec-bg,
 #midcareer .sec-bg,
-#freshers .sec-bg {
+#freshers .sec-bg,
+#evaluation .sec-bg {
     position: absolute;
     inset: 0;
     z-index: 0
@@ -930,7 +953,8 @@ section {
 #catalog .sec-bg-video,
 #numbers .sec-bg-video,
 #midcareer .sec-bg-video,
-#freshers .sec-bg-video {
+#freshers .sec-bg-video,
+#evaluation .sec-bg-video {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -943,7 +967,8 @@ section {
 #catalog .sec-bg-overlay,
 #numbers .sec-bg-overlay,
 #midcareer .sec-bg-overlay,
-#freshers .sec-bg-overlay {
+#freshers .sec-bg-overlay,
+#evaluation .sec-bg-overlay {
     position: absolute;
     inset: 0;
     background: transparent
@@ -953,7 +978,8 @@ section {
     background: none
 }
 
-#freshers.section-bg {
+#freshers.section-bg,
+#evaluation.section-bg {
     background: none
 }
 
@@ -1298,20 +1324,96 @@ footer {
     opacity: 1
 }
 
+/* 社内イベントのインスタグラム */
+.insta-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+/* 福利厚生の詳細文 */
+#welfare .wel-detail {
+    font-size: 12px;
+    line-height: 1.8;
+    text-align: left;
+    margin-bottom: auto;
+}
+
+/* 評価制度の資格一覧を横スクロールする */
+.qualification-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding: 8px 0;
+}
+
+.qualification-list::-webkit-scrollbar {
+    display: none;
+}
+
+.qualification-list .item {
+    flex: 0 0 auto;
+    padding: 6px 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* スマホサイズでは縦並びに切り替え */
+@media (max-width: 600px) {
+    .benefit-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .benefit-list .price {
+        margin-top: 4px;
+    }
+}
+
+/* 評価制度の対象資格一覧PDF */
+.pdf-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.pdf-link .ext {
+    fill: currentColor;
+}
+
+.pdf-link:hover,
+.pdf-link:focus {
+    text-decoration: underline;
+}
+
+.pdf-link:focus-visible {
+    outline: 2px solid rgba(99, 198, 231, .45);
+    outline-offset: 2px;
+}
+
 /* =========================
    Numbers
 ========================= */
-.num-cards {
+.num-cards,
+.wel-cards {
     display: grid;
     gap: 16px;
     grid-template-columns: repeat(2, 1fr)
 }
 
-#numbers .num-cards .card {
+#numbers .num-cards .card,
+#welfare .wel-cards .card {
     grid-column: auto !important
 }
 
-#numbers .num-title {
+#numbers .num-title,
+#welfare .wel-title {
     position: relative;
     margin: 0 0 10px;
     font-weight: 800;
@@ -1466,13 +1568,15 @@ footer {
     background: #a8cdfd
 }
 
-#numbers .num-stat .num-visual {
+#numbers .num-stat .num-visual,
+#welfare .wel-stat .wel-visual {
     display: grid;
     place-items: center;
     margin: 6px 0 2px
 }
 
-#numbers .num-stat .num-hero {
+#numbers .num-stat .num-hero,
+#welfare .wel-stat .wel-hero {
     width: 85%;
     height: auto;
     display: block;
@@ -1481,7 +1585,9 @@ footer {
 }
 
 #numbers .num-stat:hover .num-hero,
-#numbers .num-stat:focus-within .num-hero {
+#numbers .num-stat:focus-within .num-hero,
+#welfare .wel-stat:hover .wel-hero,
+#welfare .wel-stat:focus-within .wel-hero {
     transform: translateY(-2px) scale(1.02);
     filter: drop-shadow(0 8px 22px rgba(30, 136, 255, .22))
 }
@@ -1590,7 +1696,9 @@ footer {
 }
 
 @media (min-width:960px) {
-    .num-cards {
+
+    .num-cards,
+    .wel-cards {
         grid-template-columns: repeat(4, 1fr)
     }
 }
@@ -1659,12 +1767,14 @@ footer {
         font-size: 13px
     }
 
-    .num-cards {
+    .num-cards,
+    .wel-cards {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 12px
     }
 
-    #numbers .num-card {
+    #numbers .num-card,
+    #welfare .wel-card {
         min-height: clamp(220px, 46vw, 300px);
         display: flex;
         flex-direction: column;
@@ -1712,7 +1822,8 @@ footer {
         align-items: stretch
     }
 
-    #numbers .num-card .num-title {
+    #numbers .num-card .num-title,
+    #welfare .wel-card .wel-title {
         text-align: left;
         align-self: stretch
     }
