@@ -1331,8 +1331,9 @@ footer {
     margin: 20px auto;
 }
 
-/* 福利厚生の詳細文 */
-#welfare .wel-detail {
+/* 福利厚生と作業環境の詳細文 */
+#welfare .wel-detail,
+#work .work-detail {
     font-size: 12px;
     line-height: 1.8;
     text-align: left;
@@ -1343,34 +1344,22 @@ footer {
 .qualification-list {
     display: flex;
     flex-direction: column;
-    gap: 16px;
     overflow-x: auto;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
-    padding: 8px 0;
-}
-
-.qualification-list::-webkit-scrollbar {
-    display: none;
+    padding: 12px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, .08);
+    backdrop-filter: blur(2px);
+    margin: 8px 0;
 }
 
 .qualification-list .item {
     flex: 0 0 auto;
-    padding: 6px 0;
+    min-width: max-content;
     font-size: 14px;
     font-weight: 600;
-}
-
-/* スマホサイズでは縦並びに切り替え */
-@media (max-width: 600px) {
-    .benefit-list li {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .benefit-list .price {
-        margin-top: 4px;
-    }
+    border-bottom: 1px solid rgba(255, 255, 255, .12);
 }
 
 /* 評価制度の対象資格一覧PDF */
@@ -1401,19 +1390,22 @@ footer {
    Numbers
 ========================= */
 .num-cards,
-.wel-cards {
+.wel-cards,
+.work-cards {
     display: grid;
     gap: 16px;
     grid-template-columns: repeat(2, 1fr)
 }
 
 #numbers .num-cards .card,
-#welfare .wel-cards .card {
+#welfare .wel-cards .card,
+#work .work-cards .card {
     grid-column: auto !important
 }
 
 #numbers .num-title,
-#welfare .wel-title {
+#welfare .wel-title,
+#work .work-title {
     position: relative;
     margin: 0 0 10px;
     font-weight: 800;
@@ -1569,14 +1561,16 @@ footer {
 }
 
 #numbers .num-stat .num-visual,
-#welfare .wel-stat .wel-visual {
+#welfare .wel-stat .wel-visual,
+#work .work-stat .work-visual {
     display: grid;
     place-items: center;
     margin: 6px 0 2px
 }
 
 #numbers .num-stat .num-hero,
-#welfare .wel-stat .wel-hero {
+#welfare .wel-stat .wel-hero,
+#work .work-stat .work-hero {
     width: 85%;
     height: auto;
     display: block;
@@ -1587,7 +1581,9 @@ footer {
 #numbers .num-stat:hover .num-hero,
 #numbers .num-stat:focus-within .num-hero,
 #welfare .wel-stat:hover .wel-hero,
-#welfare .wel-stat:focus-within .wel-hero {
+#welfare .wel-stat:focus-within .wel-hero,
+#work .work-stat:hover .work-hero,
+#work .work-stat:focus-within .work-hero {
     transform: translateY(-2px) scale(1.02);
     filter: drop-shadow(0 8px 22px rgba(30, 136, 255, .22))
 }
@@ -1698,7 +1694,8 @@ footer {
 @media (min-width:960px) {
 
     .num-cards,
-    .wel-cards {
+    .wel-cards,
+    .work-cards {
         grid-template-columns: repeat(4, 1fr)
     }
 }
@@ -1768,13 +1765,15 @@ footer {
     }
 
     .num-cards,
-    .wel-cards {
+    .wel-cards,
+    .work-cards {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 12px
     }
 
     #numbers .num-card,
-    #welfare .wel-card {
+    #welfare .wel-card,
+    #work .work-card {
         min-height: clamp(220px, 46vw, 300px);
         display: flex;
         flex-direction: column;
@@ -1823,7 +1822,8 @@ footer {
     }
 
     #numbers .num-card .num-title,
-    #welfare .wel-card .wel-title {
+    #welfare .wel-card .wel-title,
+    #work .work-card .work-title {
         text-align: left;
         align-self: stretch
     }
