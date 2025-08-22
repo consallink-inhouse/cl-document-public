@@ -41,7 +41,7 @@ function runIntroTimeline() {
             setTimeout(() => {
                 whiteout.classList.remove('show');
                 whiteout.classList.add('hidden');
-                splash.classList.add('hidden');
+                splash?.classList.add('hidden');
                 document.body.classList.add('is-ready');
             }, WHITEOUT_FADE_MS);
 
@@ -50,7 +50,9 @@ function runIntroTimeline() {
     }, SPINNER_DELAY_MS);
 }
 
-window.addEventListener('DOMContentLoaded', runIntroTimeline);
+if (document.body.id === 'top') {
+  window.addEventListener('DOMContentLoaded', runIntroTimeline);
+}
 
 /* ===========================
    Header shadow on scroll
