@@ -1,0 +1,285 @@
+/* =========================
+   Drawer (off-canvas)
+========================= */
+.drawer-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(3, 39, 88, .18);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .35s ease, backdrop-filter .35s ease;
+    z-index: 40
+}
+
+.drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100dvh;
+    background: rgba(255, 255, 255, .98);
+    border-left: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    z-index: 41;
+    transform: translateX(102%);
+    opacity: 0;
+    filter: blur(3px);
+    transition: transform 520ms cubic-bezier(.22, 1, .36, 1), opacity 260ms ease, filter 420ms ease;
+    will-change: transform;
+    outline: none;
+}
+
+.drawer::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: 60%;
+    background: radial-gradient(600px 400px at -10% 20%, rgba(30, 136, 255, .18), transparent 60%);
+    pointer-events: none;
+    filter: blur(6px)
+}
+
+.drawer-header {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    position: relative;
+}
+
+.drawer-list {
+    list-style: none;
+    margin: 0;
+    padding: 16px
+}
+
+.drawer-list li {
+    margin: 6px 0;
+    opacity: 0;
+    transform: translateX(12px) scale(.98);
+    filter: blur(3px);
+    transition: opacity .45s ease, transform .45s ease, filter .45s ease
+}
+
+.drawer-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px;
+    border-radius: 14px;
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 700;
+    background: linear-gradient(180deg, rgba(255, 255, 255, .9), rgba(255, 255, 255, .65));
+    box-shadow: 0 0 8px rgba(116, 180, 255, .45), 0 6px 18px rgba(30, 136, 255, .18), inset 0 1px 0 rgba(255, 255, 255, .55);
+    transition: transform .22s ease, box-shadow .22s ease, background .22s ease, border-color .22s ease, filter .22s ease;
+}
+
+/* ホバーでズームアップ */
+.drawer-link:hover,
+.drawer-link:focus-visible {
+    transform: translateX(-3px) translateY(-1px) scale(1.02);
+    background: linear-gradient(180deg, #fff, rgba(255, 255, 255, .85));
+    border-color: rgba(30, 136, 255, 1);
+    box-shadow: 0 0 14px rgba(116, 180, 255, .6), 0 12px 28px rgba(30, 136, 255, .25), inset 0 1px 0 rgba(255, 255, 255, .65);
+}
+
+/* Open state */
+.drawer-open .drawer {
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0)
+}
+
+.drawer-open .drawer-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+    backdrop-filter: blur(3px)
+}
+
+.drawer-open .drawer-list li {
+    opacity: 1;
+    transform: none;
+    filter: blur(0)
+}
+
+.drawer-open .drawer-list li:nth-child(1) {
+    transition-delay: .12s
+}
+
+.drawer-open .drawer-list li:nth-child(2) {
+    transition-delay: .18s
+}
+
+.drawer-open .drawer-list li:nth-child(3) {
+    transition-delay: .24s
+}
+
+.drawer-open .drawer-list li:nth-child(4) {
+    transition-delay: .30s
+}
+
+.drawer-open .drawer-list li:nth-child(5) {
+    transition-delay: .36s
+}
+
+.drawer-open .drawer-list li:nth-child(6) {
+    transition-delay: .42s
+}
+
+.no-scroll {
+    overflow: hidden
+}
+
+[aria-hidden="true"] {
+    pointer-events: none
+}
+
+/* FAQ / 画像CTA */
+.ham-cta {
+    position: relative;
+    overflow: hidden;
+    padding: 0
+}
+
+.ham-cta-zoom {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    transition: transform 320ms cubic-bezier(.22, 1, .36, 1)
+}
+
+.ham-cta-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: inherit;
+    transition: transform 360ms cubic-bezier(.22, 1, .36, 1), filter 360ms ease
+}
+
+.ham-cta--faq {
+    height: 120px
+}
+
+/* ※SPの高さは responsive.css で上書き */
+.ham-cta:hover .ham-cta-zoom,
+.ham-cta:focus-visible .ham-cta-zoom {
+    transform: none
+}
+
+.ham-cta:hover .ham-cta-img,
+.ham-cta:focus-visible .ham-cta-img {
+    transform: scale(1.04);
+    filter: brightness(1.03)
+}
+
+.drawer-icon {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 auto
+}
+
+.drawer-grid-two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px
+}
+
+.drawer-list li.drawer-grid-two {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none
+}
+
+.drawer-grid-two>a {
+    opacity: 0;
+    transform: translateX(12px) scale(.98);
+    filter: blur(3px);
+    transition: opacity .45s ease, transform .45s ease, filter .45s ease;
+}
+
+.drawer-open .drawer-grid-two>a {
+    opacity: 1;
+    transform: none;
+    filter: none
+}
+
+.drawer-open .drawer-grid-two>a:nth-child(1) {
+    transition-delay: .12s
+}
+
+.drawer-open .drawer-grid-two>a:nth-child(2) {
+    transition-delay: .18s
+}
+
+.ham-cta--square {
+    aspect-ratio: 1 / 1;
+    padding: 0
+}
+
+/* Drawer close button */
+.drawer-close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: linear-gradient(180deg, #fff, rgba(255, 255, 255, .86));
+    color: var(--text);
+    font-size: 22px;
+    line-height: 1;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .08);
+    transition: transform .18s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.drawer-close:hover,
+.drawer-close:focus-visible {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, .12);
+    outline: none;
+}
+
+/* Drawer open-time zoom animation for image CTAs (FAQ, entries) */
+.drawer-opening .ham-cta .ham-cta-zoom {
+    animation: cta-zoom-pop 620ms cubic-bezier(.22, 1, .36, 1) both;
+    will-change: transform, opacity, filter;
+}
+
+/* ステップ（FAQ → 中途 → 新卒） */
+.drawer-opening .ham-cta--faq .ham-cta-zoom {
+    animation-delay: .12s
+}
+
+.drawer-opening .drawer-grid-two>a:nth-child(1) .ham-cta-zoom {
+    animation-delay: .18s
+}
+
+.drawer-opening .drawer-grid-two>a:nth-child(2) .ham-cta-zoom {
+    animation-delay: .26s
+}
+
+/* drawer の開閉だけでも確実にアイコンが変わる保険 */
+body.drawer-open .hamburger .ham-lines span:nth-child(1) {
+    top: 7px;
+    transform: rotate(45deg) scale(1.1)
+}
+
+body.drawer-open .hamburger .ham-lines span:nth-child(2) {
+    opacity: 0
+}
+
+body.drawer-open .hamburger .ham-lines span:nth-child(3) {
+    top: 7px;
+    transform: rotate(-45deg) scale(1.1)
+}

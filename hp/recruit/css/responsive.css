@@ -1,0 +1,225 @@
+/* =========================
+   Responsive (横断)
+========================= */
+@media (min-width:720px) {
+    .card {
+        grid-column: span 6
+    }
+}
+
+@media (min-width:768px) {
+    .addr-card {
+        grid-column: span 6
+    }
+
+    .foot-addresses .addr-inner {
+        min-height: 200px;
+        border-radius: 12px
+    }
+}
+
+@media (min-width:960px) {
+
+    .num-cards,
+    .wel-cards,
+    .work-cards {
+        grid-template-columns: repeat(4, 1fr)
+    }
+
+    /* セクション列数（PC） */
+    #midcareer .env-cards {
+        grid-template-columns: repeat(3, 1fr)
+    }
+
+    #freshers .env-cards {
+        grid-template-columns: repeat(3, 1fr)
+    }
+
+    #catalog .env-cards {
+        grid-template-columns: repeat(4, 1fr)
+    }
+
+    #env-hero {
+      height: clamp(260px, 50vh, 550px);
+    }
+}
+
+@media (max-width:640px) {
+
+    section {
+        padding: 30px 20px
+    }
+
+    /* CTA */
+    .cta-wrap {
+        gap: 12px;
+        justify-content: space-between;
+        flex-wrap: nowrap
+    }
+
+    .cta-wrap .btn {
+        min-width: 0;
+        flex: 1 1 48%;
+        padding: 12px 10px;
+        font-size: 14px
+    }
+
+    .cta-image {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px
+    }
+
+    .cta-img-link {
+        border-radius: 14px
+    }
+
+    /* Environment cards */
+    #environment .env-card {
+        min-height: 180px;
+        border-radius: 16px
+    }
+
+    #environment .env-card__body {
+        padding: 14px 14px 40px
+    }
+
+    #environment .env-card__desc {
+        font-size: 13px
+    }
+
+    #evaluation .env-card__body img {
+      object-fit: contain;
+      background-color: #000;
+    }
+
+    /* Footer */
+    footer {
+        padding-left: 8px;
+        padding-right: 8px
+    }
+
+    .foot-addresses {
+        padding-left: 0;
+        padding-right: 0
+    }
+
+    .addr-card {
+        border-radius: 12px
+    }
+
+    .addr-title {
+        font-size: 16px
+    }
+
+    .addr-text {
+        font-size: 14px
+    }
+
+    .addr-access li,
+    .addr-access>strong,
+    .addr-map a {
+        font-size: 13px
+    }
+
+    /* Numbers セクション（SP最適化） */
+    .num-cards,
+    .wel-cards,
+    .work-cards {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px
+    }
+
+    #numbers .num-card,
+    #welfare .wel-card,
+    #work .work-card {
+        min-height: clamp(220px, 46vw, 300px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center
+    }
+
+    #numbers .num-more {
+        min-height: clamp(220px, 46vw, 300px) !important;
+        background: var(--card-bg);
+        text-align: center;
+        align-items: center
+    }
+
+    #numbers .num-more::before {
+        background-size: 86% !important
+    }
+
+    #numbers .num-pie .pie {
+        width: 120px;
+        height: 120px;
+        --hole: 58%;
+        transform: scale(1)
+    }
+
+    #numbers .num-pie .pie::after {
+        font-size: 20px
+    }
+
+    #numbers .num-pie .pie-wrap::after {
+        width: 136px;
+        height: 136px;
+        margin-top: -128px
+    }
+
+    #numbers .num-pie .pie-legend {
+        font-size: 12px;
+        gap: 10px
+    }
+
+    #numbers .num-card {
+        text-align: left;
+        align-items: stretch
+    }
+
+    #numbers .num-card .num-title,
+    #welfare .wel-card .wel-title,
+    #work .work-card .work-title {
+        text-align: left;
+        align-self: stretch
+    }
+
+    #numbers .num-more .num-title {
+        text-align: center !important;
+        align-self: center !important
+    }
+}
+
+/* Drawer（SPのFAQサムネ比率調整） */
+@media (max-width: 480px) {
+    .ham-cta--faq {
+        height: 96px
+    }
+}
+
+/* =========================
+   Motion reduction (横断)
+========================= */
+@media (prefers-reduced-motion:reduce) {
+
+    .cta-img-link,
+    .cta-zoom,
+    .cta-img-link img,
+    .foot-links a,
+    .foot-links a::after {
+        transition: none
+    }
+
+    body.hero-cta-ready .cta-img-link .cta-zoom {
+        animation: none;
+        opacity: 1;
+        transform: none;
+        filter: none
+    }
+
+    .sec-bg-video,
+    #bgVideo {
+        animation: none
+    }
+}
