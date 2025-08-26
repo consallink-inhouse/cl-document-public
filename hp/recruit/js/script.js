@@ -38,7 +38,7 @@ class SiteHeader extends HTMLElement {
   <ul class="drawer-list">
       <li><a class="drawer-link" href="environment.html" data-close>働く環境</a></li>
       <li><a class="drawer-link" href="#numbers" data-close>数字で見る</a></li>
-      <li><a class="drawer-link" href="#midcareer" data-close>中途採用</a></li>
+      <li><a class="drawer-link" href="midcareer.html" data-close>中途採用</a></li>
       <li><a class="drawer-link" href="#freshers" data-close>新卒採用</a></li>
       <li><a class="drawer-link" href="#catalog" data-close>社員図鑑</a></li>
 
@@ -51,7 +51,7 @@ class SiteHeader extends HTMLElement {
       </li>
 
       <li class="drawer-grid-two">
-          <a class="drawer-link ham-cta ham-cta--square" href="#midcareer" data-close aria-label="中途採用エントリー">
+          <a class="drawer-link ham-cta ham-cta--square" href="midcareer.html" data-close aria-label="中途採用エントリー">
               <span class="ham-cta-zoom">
                   <img class="ham-cta-img" src="./images/humberger/middle-entry-thum.png" alt="中途採用エントリー">
               </span>
@@ -85,7 +85,7 @@ class SiteFooter extends HTMLElement {
       <a href="environment.html">働く環境</a>
       <a href="#numbers">数字で見る</a>
       <a href="#faq">よくある質問</a>
-      <a href="#midcareer">中途採用</a>
+      <a href="midcareer.html">中途採用</a>
       <a href="#freshers">新卒採用</a>
   </nav>
 

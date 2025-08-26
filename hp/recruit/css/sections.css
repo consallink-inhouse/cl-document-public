@@ -5,7 +5,8 @@
 #numbers.section-bg,
 #midcareer.section-bg,
 #freshers.section-bg,
-#evaluation.section-bg {
+#evaluation.section-bg,
+#midcareer-voice.section-bg {
     background: none;
     overflow: hidden
 }
@@ -95,7 +96,8 @@
 #environment .env-card,
 #midcareer .env-card,
 #freshers .env-card,
-#catalog .env-card {
+#catalog .env-card,
+#midcareer-voice .env-card {
     position: relative;
     overflow: hidden;
     padding: 0;
@@ -108,7 +110,8 @@
     min-height: 200px
 }
 
-#catalog .env-card {
+#catalog .env-card,
+#midcareer-voice .env-card {
     min-height: clamp(180px, 18vw, 220px)
 }
 
@@ -120,7 +123,8 @@
 #environment .env-card::before,
 #midcareer .env-card::before,
 #freshers .env-card::before,
-#catalog .env-card::before {
+#catalog .env-card::before,
+#midcareer-voice .env-card::before {
     content: "";
     position: absolute;
     inset: -14px;
@@ -147,6 +151,16 @@
     box-shadow: inset 0 0 110px rgba(0, 0, 0, .26), inset 0 0 180px rgba(0, 0, 0, .18);
 }
 
+#midcareer #midcareer-voice .env-card::after {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    z-index: 0;
+    border-radius: 22px;
+    background: none;
+    box-shadow: none;
+}
+
 #environment .env-card:hover::before,
 #environment .env-card:focus-within::before,
 #midcareer .env-card:hover::before,
@@ -154,7 +168,9 @@
 #freshers .env-card:hover::before,
 #freshers .env-card:focus-within::before,
 #catalog .env-card:hover::before,
-#catalog .env-card:focus-within::before {
+#catalog .env-card:focus-within::before,
+#midcareer-voice .env-card:hover::before,
+#midcareer-voice .env-card:focus-within::before {
     transform: scale(1.04);
     filter: brightness(1.03) saturate(.98)
 }
@@ -162,7 +178,8 @@
 #environment .env-card__body,
 #midcareer .env-card__body,
 #freshers .env-card__body,
-#catalog .env-card__body {
+#catalog .env-card__body,
+#midcareer-voice .env-card__body {
     position: relative;
     z-index: 1;
     display: flex;
@@ -177,7 +194,8 @@
 #environment .env-card__title,
 #midcareer .env-card__title,
 #freshers .env-card__title,
-#catalog .env-card__title {
+#catalog .env-card__title,
+#midcareer-voice .env-card__title {
     margin: 0;
     font-weight: 800;
     color: #fff;
@@ -189,7 +207,8 @@
 #environment .env-card__title::after,
 #midcareer .env-card__title::after,
 #freshers .env-card__title::after,
-#catalog .env-card__title::after {
+#catalog .env-card__title::after,
+#midcareer-voice .env-card__title::after {
     content: "";
     position: absolute;
     left: 0;
@@ -212,14 +231,16 @@
     width: 222px
 }
 
-#catalog .env-card__title::after {
+#catalog .env-card__title::after,
+#midcareer-voice .env-card__title::after {
     width: 100px
 }
 
 #environment .env-card__desc,
 #midcareer .env-card__desc,
 #freshers .env-card__desc,
-#catalog .env-card__desc {
+#catalog .env-card__desc,
+#midcareer-voice .env-card__desc {
     margin: 8px 0 0;
     color: #f5f9ff;
     line-height: 1.7;
@@ -230,7 +251,8 @@
 #environment .env-card__arrow,
 #midcareer .env-card__arrow,
 #freshers .env-card__arrow,
-#catalog .env-card__arrow {
+#catalog .env-card__arrow,
+#midcareer-voice .env-card__arrow {
     position: absolute;
     right: 12px;
     bottom: 10px;
@@ -241,7 +263,9 @@
 #environment .env-card__arrow img,
 #midcareer .env-card__arrow img,
 #freshers .env-card__arrow img,
-#catalog .env-card__arrow img {
+#catalog .env-card__arrow img,
+#midcareer-voice .env-card__arrow img,
+#entry-btn .entry-btn__arrow img {
     display: block;
     width: 28px;
     height: 28px;
@@ -255,7 +279,9 @@
 #freshers .env-card:hover .env-card__arrow,
 #freshers .env-card:focus-within .env-card__arrow,
 #catalog .env-card:hover .env-card__arrow,
-#catalog .env-card:focus-within .env-card__arrow {
+#catalog .env-card:focus-within .env-card__arrow,
+#midcareer-voice .env-card:hover .env-card__arrow,
+#midcareer-voice .env-card:focus-within .env-card__arrow {
     transform: translateX(2px);
     opacity: 1
 }
@@ -309,6 +335,22 @@
     background-image: url("../images/members/card4.png")
 }
 
+#midcareer-voice .mid-card1::before {
+    background-image: url("../images/middle-voice/card1.png");
+}
+
+#midcareer-voice .mid-card2::before {
+    background-image: url("../images/middle-voice/card2.png");
+}
+
+#midcareer-voice .mid-card3::before {
+    background-image: url("../images/middle-voice/card3.png");
+}
+
+#midcareer-voice .mid-card4::before {
+    background-image: url("../images/members/card4.png");
+}
+
 /* レイアウト（カードの列数） */
 #midcareer .env-cards,
 #freshers .env-cards {
@@ -319,19 +361,21 @@
 
 #midcareer .env-cards .card,
 #freshers .env-cards .card,
-#catalog .env-cards .card {
+#catalog .env-cards .card,
+#midcareer-voice .env-cards .card {
     grid-column: auto
 }
 
-#catalog .env-cards {
+#catalog .env-cards,
+#midcareer-voice .env-cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px
 }
 
-/* =========================
-   Welfare / Work / Extras
-========================= */
+/* =================================
+   Welfare / Work / Recruit / Extras
+================================= */
 .insta-wrap {
     display: flex;
     justify-content: center;
@@ -339,8 +383,9 @@
 }
 
 #welfare .wel-detail,
-#work .work-detail {
-    font-size: 12px;
+#work .work-detail,
+#recruit .recruit-detail {
+    font-size: 16px;
     line-height: 1.8;
     text-align: left;
     margin-bottom: auto
@@ -364,6 +409,7 @@
     min-width: max-content;
     font-size: 14px;
     font-weight: 600;
+    line-height: 1.8;
     border-bottom: 1px solid rgba(255, 255, 255, .12);
 }
 
@@ -395,7 +441,8 @@
 ========================= */
 .num-cards,
 .wel-cards,
-.work-cards {
+.work-cards,
+.recruit-cards {
     display: grid;
     gap: 16px;
     grid-template-columns: repeat(2, 1fr)
@@ -403,13 +450,15 @@
 
 #numbers .num-cards .card,
 #welfare .wel-cards .card,
-#work .work-cards .card {
+#work .work-cards .card,
+#recruit .recruit-cards .card {
     grid-column: auto !important
 }
 
 #numbers .num-title,
 #welfare .wel-title,
-#work .work-title {
+#work .work-title,
+#recruit .recruit-title {
     position: relative;
     margin: 0 0 10px;
     font-weight: 800;
@@ -540,7 +589,8 @@
 
 #numbers .num-stat .num-visual,
 #welfare .wel-stat .wel-visual,
-#work .work-stat .work-visual {
+#work .work-stat .work-visual,
+#recruit .recruit-stat .recruit-visual {
     display: grid;
     place-items: center;
     margin: 6px 0 2px
@@ -556,12 +606,22 @@
     transition: transform 280ms cubic-bezier(.22, 1, .36, 1), filter 280ms ease
 }
 
+#recruit .recruit-stat .recruit-hero {
+    width: 60%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 4px 14px rgba(30, 136, 255, .18));
+    transition: transform 280ms cubic-bezier(.22, 1, .36, 1), filter 280ms ease
+}
+
 #numbers .num-stat:hover .num-hero,
 #numbers .num-stat:focus-within .num-hero,
 #welfare .wel-stat:hover .wel-hero,
 #welfare .wel-stat:focus-within .wel-hero,
 #work .work-stat:hover .work-hero,
-#work .work-stat:focus-within .work-hero {
+#work .work-stat:focus-within .work-hero,
+#recruit .recruit-stat:hover .recruit-hero,
+#recruit .recruit-stat:focus-within .recruit-hero {
     transform: translateY(-2px) scale(1.02);
     filter: drop-shadow(0 8px 22px rgba(30, 136, 255, .22))
 }
@@ -785,4 +845,96 @@
     .env-hero-img {
         animation: none;
     }
+}
+
+/* 中途採用の募集要項 */
+.recruit-spec {
+    background: var(--bg-end);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 16px 20px;
+    margin: 20px auto;
+    max-width: 1100px;
+}
+
+/* テーブル共通 */
+.recruit-spec table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    color: var(--text);
+    line-height: 1.8;
+}
+
+/* 行ごとの区切り線 */
+.recruit-spec tbody tr {
+    border-bottom: 1px solid var(--primary-300);
+}
+
+.recruit-spec tbody tr:last-child {
+    border-bottom: none;
+}
+
+/* 左側（見出しセル） */
+.recruit-spec th {
+    width: 25%;
+    font-weight: bold;
+    text-align: left;
+    vertical-align: top;
+    padding: 12px 8px;
+    color: var(--primary-700);
+    white-space: nowrap;
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* 右側（内容セル） */
+.recruit-spec td {
+    width: 75%;
+    padding: 12px 8px;
+    vertical-align: top;
+    color: var(--text);
+}
+
+/* 中途採用画面のエントリーボタン */
+#entry-btn {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+    position: relative;
+}
+
+/* ボタン本体 */
+.entry-btn__link {
+    position: relative;
+    display: inline-block;
+    background-color: var(--primary-700);
+    padding: 0 40px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 14px 68px 14px 40px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+/* ホバー時の効果 */
+.entry-btn__link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* 矢印アイコン */
+.entry-btn__arrow {
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: .95;
+    transition: transform .25s ease;
+}
+
+.entry-btn__link:active {
+    transform: translateY(0);
 }

@@ -26,6 +26,10 @@
         grid-template-columns: repeat(4, 1fr)
     }
 
+    .recruit-cards {
+        grid-template-columns: repeat(3, 1fr)
+    }
+
     /* セクション列数（PC） */
     #midcareer .env-cards {
         grid-template-columns: repeat(3, 1fr)
@@ -35,12 +39,13 @@
         grid-template-columns: repeat(3, 1fr)
     }
 
-    #catalog .env-cards {
+    #catalog .env-cards,
+    #midcareer-voice .env-cards {
         grid-template-columns: repeat(4, 1fr)
     }
 
     #env-hero {
-      height: clamp(260px, 50vh, 550px);
+        height: clamp(260px, 50vh, 550px);
     }
 }
 
@@ -73,6 +78,27 @@
         border-radius: 14px
     }
 
+    /* Midcareer */
+    #midcareer #recruit .recruit-detail {
+        font-size: 14px
+    }
+
+    #midcareer #recruit .recruit-spec th,
+    #midcareer #recruit .recruit-spec td,
+    #environment #work .work-detail,
+    #environment #welfare .wel-detail {
+        font-size: 12px
+    }
+
+    #recruit .recruit-title {
+        margin: 0;
+        padding: 0;
+    }
+
+    #recruit .recruit-stat .recruit-hero {
+        display: none;
+    }
+
     /* Environment cards */
     #environment .env-card {
         min-height: 180px;
@@ -83,13 +109,19 @@
         padding: 14px 14px 40px
     }
 
-    #environment .env-card__desc {
-        font-size: 13px
+    #midcareer #midcareer-voice .env-card__desc {
+        font-size: 12px;
+        font-weight: 700;
     }
 
     #evaluation .env-card__body img {
-      object-fit: contain;
-      background-color: #000;
+        object-fit: contain;
+        background-color: #000;
+    }
+
+    /* Environment */
+    .qualification-list .item {
+        font-size: 14px;
     }
 
     /* Footer */
@@ -126,6 +158,11 @@
     .wel-cards,
     .work-cards {
         grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px
+    }
+
+    .recruit-cards {
+        grid-template-columns: 1fr !important;
         gap: 12px
     }
 
