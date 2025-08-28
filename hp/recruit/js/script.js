@@ -458,6 +458,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const tabs = document.querySelectorAll('.faq-button');
     const sections = document.querySelectorAll('.faq-section');
 
+    // 初期表示中途設定
+    const midSection = document.getElementById('mid');
+    const midTab = document.querySelector('.faq-button[data-target="mid"]');
+
+    sections.forEach(section => {
+        section.style.display = 'none';
+    });
+
+    if (midSection) {
+        midSection.style.display = 'block';
+    }
+
+    if (midTab) {
+        midTab.classList.add('active');
+    }
+
     // タブボタンのクリックイベント
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
