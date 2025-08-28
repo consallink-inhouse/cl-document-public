@@ -938,3 +938,67 @@
 .entry-btn__link:active {
     transform: translateY(0);
 }
+
+
+/* よくある質問ボタン */
+.faq-button {
+    margin: 10px;
+    position: relative;
+    display: inline-block;
+    background-color: var(--primary-700);
+    padding: 0 40px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 16px 60px 16px 60px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+/* ホバー時の効果 */
+.faq-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px var(--subtext);
+}
+
+.glow-text {
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 30px var(--primary);
+}
+
+/* よくある質問ボタンクリックするときに色変更 */
+.faq-tabs .faq-button.active {
+    background-color: var(--primary-300);
+    border-bottom: 2px solid var(--primary);
+    text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 30px var(--primary);
+}
+
+/* よくある質問 Q内容*/
+.title-md {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.faq-answer {
+    padding-left: 10px;
+}
+
+/* よくある質問質問SP用 */
+@media (max-width: 767px) {
+
+    /* SPの時ボタンデザイン丸く */
+    .faq-button {
+        text-align: center;
+        padding: 30px;
+    }
+
+    /* SP時タイトル見えるように高さ修正
+    ＊TOPバナー画像配置する時にいらないので削除 */
+    .sec-title-small-faq {
+        padding-top: 60px;
+    }
+}

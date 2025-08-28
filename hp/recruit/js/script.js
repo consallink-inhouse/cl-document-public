@@ -453,3 +453,27 @@ const io = new IntersectionObserver((entries) => {
 
 revealTargets.forEach(el => io.observe(el));
 
+//よくある質問画面ボタン用
+document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.faq-button');
+    const sections = document.querySelectorAll('.faq-section');
+
+    // タブボタンのクリックイベント
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const targetId = tab.getAttribute('data-target');
+
+            // 全てのタブボタンからactiveクラスを削除し、クリックされたボタンに追加
+            tabs.forEach(item => item.classList.remove('active'));
+            tab.classList.add('active');
+
+            // 全てのセクションを非表示にし、対象のセクションのみ表示
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(targetId).style.display = 'block';
+        });
+
+    });
+});
+
