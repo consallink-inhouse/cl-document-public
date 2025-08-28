@@ -43,7 +43,7 @@ class SiteHeader extends HTMLElement {
       <li><a class="drawer-link" href="#catalog" data-close>社員図鑑</a></li>
 
       <li>
-          <a class="drawer-link ham-cta ham-cta--faq" href="#faq" data-close aria-label="よくある質問">
+          <a class="drawer-link ham-cta ham-cta--faq" href="faq.html#common" data-close aria-label="よくある質問">
               <span class="ham-cta-zoom">
                   <img class="ham-cta-img" src="./images/humberger/question.png" alt="よくある質問（FAQ）">
               </span>
@@ -84,7 +84,7 @@ class SiteFooter extends HTMLElement {
       <a href="#catalog">社員図鑑</a>
       <a href="environment.html">働く環境</a>
       <a href="#numbers">数字で見る</a>
-      <a href="#faq">よくある質問</a>
+      <a href="faq.html#common">よくある質問</a>
       <a href="midcareer.html">中途採用</a>
       <a href="#freshers">新卒採用</a>
   </nav>
@@ -452,3 +452,4 @@ const io = new IntersectionObserver((entries) => {
 }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.15 });
 
 revealTargets.forEach(el => io.observe(el));
+

@@ -1,0 +1,135 @@
+.faq-conteentbox {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    overflow: hidden;
+}
+
+.faq-conteentbox::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(to right, #1e88ff, #f824ff);
+    transform: skewY(-5deg);
+    transform-origin: bottom left;
+    z-index: -1;
+    animation: bgSlide 1s ease forwards;
+}
+
+/* 右から左に開く */
+@keyframes bgSlide {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+.faq-conteentbox .content-text {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    font-size: clamp(32px, 3.2vw, 48px);
+    text-align: center;
+    padding-top: 14%;
+    padding-bottom: 6%;
+}
+
+.title-md {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.faq-answer {
+    font-size: 22px;
+    padding-left: 14px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.faq-answer-rounded-box {
+    position: relative;
+    border: 6px solid transparent;
+    border-image: linear-gradient(45deg, #1e88ff, #f824ff)1;
+    border-radius: 20px;
+    background-color: #fff;
+    margin: 20px;
+
+}
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 2s ease forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.faq-tabs .faq-button.active {
+    background-color: var(--primary-300);
+    border-bottom: 2px solid var(--primary);
+    text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 30px var(--primary);
+}
+
+.faq-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.faq-button {
+    text-shadow: 0 1px 2px var(--shadow);
+    display: inline-block;
+    box-sizing: border-box;
+    margin-top: 30px;
+    width: 220px;
+    height: 80px;
+    border-radius: 20px 3px 20px 3px;
+    background-color: var(--primary);
+    text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 30px var(--primary);
+}
+
+.faq-button-text {
+    text-align: center;
+    font-size: 26px;
+    color: #fff;
+    padding-top: 12px;
+}
+
+@media (max-width: 767px) {
+    .faq-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .faq-button {
+        width: 60%;
+        margin-top: 15px;
+    }
+}
+
+.glow-text {
+    font-size: 32px;
+    color: #fff;
+    text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 30px var(--primary);
+}
+
+.hover-zoom {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.hover-zoom:hover {
+    transform: scale(1.1);
+}
