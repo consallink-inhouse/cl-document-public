@@ -89,7 +89,7 @@
 }
 
 .faq-button {
-    text-shadow: 0 1px 2px rgba(0, 0, 0, .40);
+    text-shadow: 0 1px 2px var(--shadow);
     display: inline-block;
     box-sizing: border-box;
     margin-top: 30px;
@@ -132,16 +132,4 @@
 
 .hover-zoom:hover {
     transform: scale(1.1);
-}
-
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
