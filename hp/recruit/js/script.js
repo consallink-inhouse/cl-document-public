@@ -459,19 +459,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('.faq-section');
 
     // 初期表示中途設定
-    const chutoSection = document.getElementById('mid');
-    const chutoTab = document.querySelector('.faq-button[data-target="mid"]');
+    const midSection = document.getElementById('mid');
+    const midTab = document.querySelector('.faq-button[data-target="mid"]');
 
     sections.forEach(section => {
         section.style.display = 'none';
     });
 
-    if (chutoSection) {
-        chutoSection.style.display = 'block';
+    if (midSection) {
+        midSection.style.display = 'block';
     }
 
-    if (chutoTab) {
-        chutoTab.classList.add('active');
+    if (midTab) {
+        midTab.classList.add('active');
     }
 
     // タブボタンのクリックイベント
