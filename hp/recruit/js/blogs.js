@@ -103,7 +103,7 @@ async function main() {
     } catch (e) {
         console.error(e);
         const container = document.getElementById(CONTAINER_ID);
-        if (container) container.innerHTML = "<p>ブログ一覧を読み込めませんでした。時間をおいて再度お試しください。</p>";
+        if (container) container.innerHTML = "<p>ブログ一覧を読み込めませんでした。</br>時間をおいて再度お試しください。</p>";
     }
 }
 

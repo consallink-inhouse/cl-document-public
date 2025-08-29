@@ -72,7 +72,7 @@ async function main() {
     } catch (e) {
         console.error(e);
         const empty = document.getElementById("blog-empty");
-        empty.textContent = "ブログ記事を読み込めませんでした。時間をおいて再度お試しください。";
+        empty.innerHTML = "<p>ブログ記事を読み込めませんでした。</br>時間をおいて再度お試しください。</p>";
         empty.style.display = "";
     }
 }
