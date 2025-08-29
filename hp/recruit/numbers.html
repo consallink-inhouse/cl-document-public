@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ConsalLink Recruit Page</title>
+    <meta name="description" content="ConsalLink Recruit Page">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- OGP / Twitter -->
+    <meta property="og:title" content="ConsalLink Recruit Page">
+    <meta property="og:description" content="ConsalLink Recruit Page">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://example.com/ogp.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/drawer.css">
+    <link rel="stylesheet" href="./css/hero.css">
+    <link rel="stylesheet" href="./css/sections.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="./images/icon/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./images/icon/favicon.ico" type="image/x-icon">
+
+    <noscript>
+        <style>
+            body.is-loading {
+                opacity: 1 !important;
+            }
+
+            #splash,
+            #curtain,
+            #whiteout {
+                display: none !important;
+            }
+        </style>
+    </noscript>
+</head>
+
+<body id="numbers">
+    <site-header></site-header>
+
+    <main id="main">
+        <!-- TOPイメージ -->
+        <section id="env-hero">
+            <div class="env-hero-wrap">
+                <img src="./images/numbers/top.svg" alt="数字で見る" class="env-hero-img" loading="eager">
+            </div>
+        </section>
+
+        <!-- 数字で見る：イントロ -->
+        <section id="numbers-intro" class="reveal section-bg" aria-label="数字で見る">
+            <div class="section-inner">
+                <h3 class="sec-title-small">数字で見るコンサルリンク</h3>
+                <p class="sec-lead">
+                    コンサルリンクの社員数や年齢構成、比率などをカードとグラフでご紹介します。
+                </p>
+
+                <div class="cards num-cards">
+
+                    <!-- 1 売上高（棒グラフ） -->
+                    <article class="card num-card kpi-card reveal">
+                      <header class="kpi-header">
+                        <h4 class="kpi-title">売上高</h4>
+                      </header>
+
+                      <div class="kpi-body -center">
+                        <!-- グラフ領域（※追加） -->
+                        <div class="kpi-graph" style="width:100%; max-width:255px; height:240px;">
+                          <canvas id="chart-sales" aria-label="売上推移" role="img"></canvas>
+                        </div>
+                        <!-- 大きな数値（カウントアップ対象） -->
+                        <div class="kpi-value" style="margin-bottom:8px;">
+                          <span class="num">692</span><span class="unit">百万円</span>
+                        </div>
+
+                      </div>
+                    </article>
+
+                    <!-- 2 従業員数（数値） -->
+                    <article class="card num-card kpi-card reveal kpi-card--team">
+                      <header class="kpi-header">
+                        <h4 class="kpi-title">従業員数</h4>
+                      </header>
+                      <div class="kpi-body -center">
+                        <figure class="kpi-thumb">
+                          <img src="./images/numbers/team.png" alt="従業員数イメージ" loading="lazy">
+                        </figure>
+                        <div class="kpi-value"><span class="num">58</span><span class="unit">名</span></div>
+                      </div>
+                    </article>
+
+                    <!-- 3 男女比率（円グラフ） -->
+                    <div class="card reveal kpi-card">
+                        <div class="kpi-header">
+                            <h3 class="kpi-title">男女比率</h3>
+                        </div>
+                        <div class="kpi-body -center">
+                            <div class="kpi-graph pie" style="width: 200px; height: 200px;">
+                                <canvas id="chart-gender" aria-label="男女比率" role="img"></canvas>
+                            </div>
+                        </div>
+                        <ul class="kpi-legend -stack">
+                            <li><span class="dot" style="background:#1E90FF;"></span>男性 39名</li>
+                            <li><span class="dot" style="background:#F472B6;"></span>女性 19名</li>
+                        </ul>
+                    </div>
+
+                    <!-- 4 文理比率（ドーナツ：穴を少し小さく） -->
+                    <div class="card reveal kpi-card">
+                        <div class="kpi-header">
+                            <h3 class="kpi-title">文理比率</h3>
+                        </div>
+                        <div class="kpi-body -center">
+                            <div class="kpi-graph pie" style="width: 200px; height: 200px;">
+                                <canvas id="chart-bunri" aria-label="文理比率" role="img"></canvas>
+                            </div>
+                        </div>
+                        <ul class="kpi-legend -stack">
+                            <li><span class="dot" style="background:#4F46E5;"></span>文系 80%</li>
+                            <li><span class="dot" style="background:#06B6D4;"></span>理系 20%</li>
+                        </ul>
+                    </div>
+
+                    <!-- 5 事業部別人員比較（横棒） -->
+                    <div class="card reveal kpi-card bar-center">
+                        <div class="kpi-header">
+                            <h3 class="kpi-title">事業部別人員比較</h3>
+                        </div>
+                        <div class="kpi-body -center">
+                            <div class="kpi-graph bar" style="width:100%; max-width:520px; height:260px;">
+                                <canvas id="chart-dept" aria-label="事業部別人員比較" role="img"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6 年齢分布（横棒） -->
+                    <div class="card reveal kpi-card">
+                        <div class="kpi-header">
+                            <h3 class="kpi-title">年齢分布</h3>
+                        </div>
+                        <div class="kpi-body -center">
+                            <div class="kpi-graph bar" style="width:100%; max-width:520px; height:260px;">
+                                <canvas id="chart-age" aria-label="年齢分布" role="img"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7 年間休日 -->
+                    <article class="card num-card kpi-card reveal">
+                      <header class="kpi-header">
+                        <h4 class="kpi-title">年間休日</h4>
+                      </header>
+                      <div class="kpi-body -center">
+                        <figure class="kpi-thumb">
+                          <img src="./images/numbers/holiday_year.png" alt="年間休日イメージ" loading="lazy">
+                        </figure>
+                        <div class="kpi-value"><span class="num">125</span><span class="unit">日以上</span></div>
+                      </div>
+                    </article>
+
+                    <!-- 8 有休休暇取得率 -->
+                    <article class="card num-card kpi-card reveal">
+                      <header class="kpi-header">
+                        <h4 class="kpi-title">有休休暇取得率</h4>
+                      </header>
+                      <div class="kpi-body -center">
+                        <figure class="kpi-thumb">
+                          <img src="./images/numbers/holidayone.png" alt="有休休暇取得率イメージ" loading="lazy">
+                        </figure>
+                        <div class="kpi-value"><span class="num">87</span><span class="unit">%</span></div>
+                      </div>
+                    </article>
+
+                    <!-- 9 育児休暇取得率 -->
+                    <article class="card num-card kpi-card reveal">
+                      <header class="kpi-header">
+                        <h4 class="kpi-title">育児休暇取得率</h4>
+                      </header>
+                      <div class="kpi-body -center">
+                        <figure class="kpi-thumb">
+                          <img src="./images/numbers/family.png" alt="育児休暇取得率イメージ" loading="lazy">
+                        </figure>
+                        <div class="kpi-value"><span class="num">66</span><span class="unit">%</span></div>
+                      </div>
+                    </article>
+
+                    <!-- 10 長時間労働の抑制（ゲージ） -->
+                    <article class="card num-card kpi-card reveal">
+                      <header class="kpi-header">
+                        <h4 class="kpi-title">長時間労働の抑制</h4>
+                      </header>
+                      <div class="kpi-body -center">
+                        <div class="kpi-value">
+                          <span class="num">8</span>
+                          <span class="unit">時間</span>
+                        </div>
+                        <p class="kpi-note">平均残業を“8時間未満”目標として抑制</p>
+                      </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <site-footer></site-footer>
+
+    <!-- Chart.js を先に、次に numbers.js（どちらも defer） -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer></script>
+    <script src="./js/numbers.js" defer></script>
+    <script src="./js/script.js" defer></script>
+</body>
+
+</html>
