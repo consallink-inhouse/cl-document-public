@@ -26,6 +26,10 @@
     <link rel="stylesheet" href="./css/hero.css">
     <link rel="stylesheet" href="./css/sections.css">
     <link rel="stylesheet" href="./css/responsive.css">
+    <!-- Markdownパーサ -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- サニタイズ（XSS防止） -->
+    <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
 
     <!-- favicon -->
     <link rel="icon" href="./images/icon/favicon.ico" type="image/x-icon">
@@ -48,23 +52,15 @@
 </head>
 
 <body id="midcareer">
-
     <site-header></site-header>
 
     <main id="main">
-
-        <!-- TOPイメージ -->
-        <section id="env-hero">
-            <div class="env-hero-wrap">
-                <img src="./images/middle-entry/top.svg" alt="中途採用" class="env-hero-img" loading="eager">
-            </div>
-        </section>
-
-        <!-- 中途社員の声 -->
-        <section id="midcareer-voice" class="reveal section-bg" aria-label="中途社員の声">
+        <!-- 新入社員の声 -->
+        <section id="midcareer-voice" class="reveal section-bg" aria-label="新入社員の声">
             <div class="section-inner">
-                <h3 class="sec-title-small">中途社員の声</h3>
-                <p class="sec-lead">さまざまなバックグラウンドを持つ中途入社メンバーのリアルな声をご紹介します。</br>入社の決め手やキャリアの変化、実際の働き方などを語ってもらいました。
+                <h2 class="sec-title">新卒採用</h2>
+                <h3 class="sec-title-small">新入社員の声</h3>
+                <p class="sec-lead">就活生に最も近い存在である、新入社員のリアルな声です！</br>就活のこと、入社してみて感じたギャップ、研修のことなどをゆるく聞いてみました。
                 </p>
 
                 <div class="cards env-cards">
@@ -280,10 +276,22 @@
             </div>
         </section>
 
+        <!-- 新卒研修について -->
+        <section id="training" class="reveal section-bg" aria-label="新卒研修について">
+            <div class="section-inner">
+                <h3 class="sec-title-small">新卒研修について</h3>
+                <p class="sec-lead">
+                    入社してからのことって、とても不安ですよね。</br>コンサルリンクでは、3ヶ月の社内研修を行っています。</br>ここでは、新入社員が書いた研修の振り返りブログをご紹介します。
+                </p>
+
+                <div id="blog-list"></div>
+            </div>
+        </section>
     </main>
 
     <site-footer></site-footer>
     <script src="./js/script.js" defer></script>
+    <script src="./js/blogs.js" defer></script>
 </body>
 
 </html>

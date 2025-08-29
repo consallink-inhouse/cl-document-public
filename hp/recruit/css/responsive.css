@@ -47,6 +47,10 @@
     #env-hero {
         height: clamp(260px, 50vh, 550px);
     }
+
+    #blog-list {
+        grid-template-columns: repeat(3, 1fr)
+    }
 }
 
 @media (max-width:640px) {
@@ -225,6 +229,19 @@
     #numbers .num-more .num-title {
         text-align: center !important;
         align-self: center !important
+    }
+
+    /* ブログ */
+    #blog-list {
+        grid-template-columns: 1fr;
+    }
+
+    #blog-title {
+        font-size: 28px;
+    }
+
+    #blog-content h2 {
+        font-size: 24px;
     }
 }
 
