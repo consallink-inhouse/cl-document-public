@@ -4,13 +4,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ConsalLink Recruit よくある質問</title>
-    <meta name="description" content="ConsalLink Recruit Page よくある質問">
+    <title>ConsalLink Recruit Page | よくある質問</title>
+    <meta name="description" content="ConsalLink Recruit Page - よくある質問">
     <meta name="theme-color" content="#ffffff">
 
-    <!-- OGP / Twitter -->
-    <meta property="og:title" content="ConsalLink Recruit Page">
-    <meta property="og:description" content="ConsalLink Recruit Page">
+    <meta property="og:title" content="ConsalLink Recruit Page - よくある質問">
+    <meta property="og:description" content="ConsalLink Recruit Page - よくある質問">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://example.com/ogp.jpg">
     <meta name="twitter:card" content="summary_large_image">
@@ -21,17 +20,16 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/drawer.css">
     <link rel="stylesheet" href="./css/hero.css">
     <link rel="stylesheet" href="./css/sections.css">
     <link rel="stylesheet" href="./css/responsive.css">
 
-    <!-- favicon -->
     <link rel="icon" href="./images/icon/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="./images/icon/favicon.ico" type="image/x-icon">
 
-    <!-- JS無効時のフォールバック -->
     <noscript>
         <style>
             body.is-loading {
@@ -51,93 +49,92 @@
     <site-header></site-header>
 
     <main id="main">
-        <!-- TOP－イメージ-->
-        <!-- <section id="env-hero">
+
+        <section id="env-hero">
             <div class="env-hero-wrap">
-                <img src="./images/environment/top.svg" alt="よくある質問" class="env-hero-img" loading="eager">
+                <img src="./images/faq/top.svg" alt="よくある質問" class="env-hero-img" loading="eager">
             </div>
-        </section> -->
+        </section>
 
-        <!-- Top -->
-        <section id="midcareer-voice" class="reveal section-bg reveal" aria-label="よくある質問">
+        <section class="reveal section-bg" aria-label="よくある質問">
             <div class="section-inner">
-                <h2 class="sec-title-small-faq sec-title-small">よくある質問</h2>
-            </div>
-        </section>
+                <h3 class="sec-title-small">よくある質問</h3>
+                <p class="sec-lead">採用に関するよくあるご質問をまとめました。各質問をタップ/クリックすると回答が表示されます。</p>
 
-        <!-- ボタン -->
-        <div id="entry-btn">
-            <div class="faq-tabs faq-container work-visual">
-                <h3 class="faq-button glow-text" data-target="mid">中途</h3>
-                <h3 class=" faq-button  glow-text" data-target="new">新卒</h3>
-                <h3 class="faq-button glow-text" data-target="common">共通</h3>
-            </div>
-        </div>
+                <div class="faq-qa" id="faq-list-all">
+                    <ul class="faq-list">
+                        <!-- 中途 -->
+                        <li class="faq-item">
+                            <button class="q" aria-expanded="false">
+                                <span class="q-label">Q</span> 社員表彰制度はありますか？
+                            </button>
+                            <div class="a" hidden>
+                                はい。半期ごとの表彰制度を設けており、<br>成果やチーム貢献を評価する文化があります。選出者にはインセンティブが支給されることもあります。
+                            </div>
+                        </li>
+                        <li class="faq-item">
+                            <button class="q" aria-expanded="false">
+                                <span class="q-label">Q</span> 健康診断やメンタルヘルスケアはありますか？
+                            </button>
+                            <div class="a" hidden>
+                                年1回の定期健康診断のほか、ストレスチェックや産業医との面談制度もあります。
+                            </div>
+                        </li>
 
-        <!--中途-->
-        <section id="mid" class="faq-section reveal" aria-label="中途">
-            <div class="recruit-spec reveal">
-                <p class="title-md  faq-question  ">Q 社員表彰制度はありますか？</p>
-                <p class="faq-answer wel-detail">
-                    はい。半期ごとの表彰制度を設けており、<br>成果やチーム貢献を評価する文化があります。選出者にはインセンティブが支給されることもあります。
-                </p>
-            </div>
-            <div>
-                <div class="recruit-spec reveal">
-                    <p class="title-md  faq-question  ">Q 健康診断やメンタルヘルスケアはありますか？</p>
-                    <p class="faq-answer wel-detail">年1回の定期健康診断のほか、ストレスチェックや産業医との面談制度もあります。</p>
+                        <!-- 新卒 -->
+                        <li class="faq-item">
+                            <button class="q" aria-expanded="false">
+                                <span class="q-label">Q</span> 面接はオンラインで実施していますか？
+                            </button>
+                            <div class="a" hidden>
+                                最終面接については、希望や状況に応じて対面またはオンラインで対応可能です。
+                            </div>
+                        </li>
+                        <li class="faq-item">
+                            <button class="q" aria-expanded="false">
+                                <span class="q-label">Q</span> 内定後のフォローはありますか？
+                            </button>
+                            <div class="a" hidden>
+                                はい。内定者向けの面談や交流会、定期的な連絡を行っています。<br>入社前に不安がないようしっかりサポートしています。
+                            </div>
+                        </li>
+
+                        <!-- 共通 -->
+                        <li class="faq-item">
+                            <button class="q" aria-expanded="false">
+                                <span class="q-label">Q</span> 社内にフリードリンクなどはありますか？
+                            </button>
+                            <div class="a" hidden>
+                                はい。水や緑茶などのフリードリンクがあります。また、オフィス内にはリラックススペースを設けています。<br>（※配属先により異なる場合があります）
+                            </div>
+                        </li>
+                        <li class="faq-item">
+                            <button class="q" aria-expanded="false">
+                                <span class="q-label">Q</span> 健康診断やメンタルヘルスケアはありますか？
+                            </button>
+                            <div class="a" hidden>
+                                年1回の定期健康診断のほか、ストレスチェックや産業医との面談制度も導入しています。<br>社員の心身の健康を会社としてサポートしています。
+                            </div>
+                        </li>
+                        <li class="faq-item">
+                            <button class="q" aria-expanded="false">
+                                <span class="q-label">Q</span> 社内での技術勉強会はありますか？
+                            </button>
+                            <div class="a" hidden>
+                                はい。有志による社内勉強会やLT会（ライトニングトーク）が頻繁に開催されており、<br>様々な社員がアウトプットの場として活用しています。
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-            </div>
-        </section>
 
-        <!--－新卒-->
-        <section id="new" class="faq-section reveal" aria-label="新卒">
-            <div class="recruit-spec reveal">
-                <p class="title-md  faq-question">Q 面接はオンラインで実施していますか？</p>
-                <p class="faq-answer">
-                    はい。原則として1次面接、2次面接はオンライン（Zoom等）で実施しております。
-                    <br>最終面接については、希望や状況に応じて対面またはオンラインで対応可能です。
-                </p>
-            </div>
-            <div class="recruit-spec reveal">
-                <p class="title-md  faq-question ">Q 内定後のフォローはありますか？</p>
-                <p class="faq-answer">はい。内定者向けの面談や交流会、定期的な連絡を行っています。
-                    <br>入社前に不安がないようしっかりサポートしています。
-                </p>
-            </div>
-            <div class="recruit-spec reveal">
-                <p class="title-md  faq-question  ">Q どんなチーム体制で働くことになりますか？</p>
-                <p class="faq-answer">プロジェクトごとに3〜6名程度のチームを編成しています。
-                    チームリーダーや先輩社員のサポートのもと、<br>段階的に業務をお任せしていく体制です。
-                </p>
-            </div>
-        </section>
-
-        <!--－共通-->
-        <section id="common" class="faq-section reveal" aria-label="共通">
-            <div class="recruit-spec reveal">
-                <p class="title-md  faq-question">Q 社内にフリードリンクなどはありますか？</p>
-                <p class="faq-answer">
-                    はい。水や緑茶などのフリードリンクがあります。
-                    また、オフィス内にはリラックススペースを設けています。
-                    <br>（※配属先により異なる場合があります）
-                </p>
-            </div>
-            <div class="recruit-spec reveal">
-                <p class="title-md  faq-question">Q 健康診断やメンタルヘルスケアはありますか？</p>
-                <p class="faq-answer">年1回の定期健康診断のほか、ストレスチェックや産業医との面談制度も導入しています。
-                    <br>社員の心身の健康を会社としてサポートしています。
-                </p>
-            </div>
-            <div class="recruit-spec reveal">
-                <p class="title-md  faq-question">Q 社内での技術勉強会はありますか？</p>
-                <p class="faq-answer">はい。有志による社内勉強会やLT会（ライトニングトーク）が頻繁に開催されており、<br>様々な社員がアウトプットの場として活用しています。
-                </p>
             </div>
         </section>
     </main>
+
     <site-footer></site-footer>
+
     <script src="./js/script.js" defer></script>
+    <script src="./js/faq.js" defer></script>
 </body>
 
 </html>
